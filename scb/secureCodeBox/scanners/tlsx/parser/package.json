@@ -1,0 +1,10 @@
+{
+  "name": "tlsx-parser",
+  "version": "1.0.0",
+  "description": "Parser for TLSX scan results",
+  "main": "parser.js",
+  "dependencies": {
+    "@securecodebox/parser-sdk-nodejs": "file:./parser-sdk-nodejs",
+    "minio": "^8.0.5"
+  }
+}

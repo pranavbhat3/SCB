@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+name: gitleaks
+description: A Helm chart for the gitleaks repository scanner that integrates with the secureCodeBox.
+type: application
+# version - gets automatically set to the secureCodeBox release version when the helm charts gets published
+version: v3.1.0-alpha1
+appVersion: "v8.27.2"
+kubeVersion: ">=v1.11.0-0"
+annotations:
+  versionApi: https://api.github.com/repos/zricethezav/gitleaks/releases/latest
+  supported-platforms: linux/amd64,linux/arm64
+keywords:
+  - security
+  - gitleaks
+  - scanner
+  - secureCodeBox
+home: https://www.securecodebox.io/docs/scanners/gitleaks
+icon: https://www.securecodebox.io/img/integrationIcons/Gitleaks.svg
+sources:
+  - https://github.com/secureCodeBox/secureCodeBox
+maintainers:
+  - name: iteratec GmbH
+    email: secureCodeBox@iteratec.com

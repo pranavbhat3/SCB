@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+version: v3.1.0-alpha1
+type: application
+appVersion: "v1.0.0"
+name: dummy-ssh
+description: "SSH Server for scan testing."
+home: https://www.securecodebox.io
+icon: https://www.securecodebox.io/img/integrationIcons/SSH.svg
+keywords:
+  - vulnerable
+  - ssh
+sources:
+  - https://github.com/secureCodeBox/secureCodeBox/tree/master/demo-targets/dummy-ssh
+maintainers:
+  - name: iteratec GmbH
+    email: securecodebox@iteratec.com

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile App Scanner</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 2em; 
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .error { 
+            color: #d32f2f; 
+            background-color: #ffebee;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 1em 0;
+        }
+        .success { 
+            color: #388e3c; 
+            background-color: #e8f5e8;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 1em 0;
+        }
+        .status { 
+            margin-top: 1em; 
+            padding: 1em;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        .form-actions {
+            display: flex;
+            gap: 1em;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 0.75em;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: #2196f3;
+        }
+        button {
+            background-color: #2196f3;
+            color: white;
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        button:hover:not(:disabled) {
+            background-color: #1976d2;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .btn-success {
+            background-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .scanner-info {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 1em 0;
+            border-left: 4px solid #2196f3;
+        }
+        .scanner-info h4 {
+            margin-top: 0;
+            color: #2196f3;
+        }
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 2em;
+        }
+        .nav-tab {
+            padding: 1em 2em;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-right: 0.5em;
+        }
+        .nav-tab.active {
+            background: white;
+            border-bottom-color: #2196f3;
+            color: #2196f3;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Mobile App Scanner</h1>
+        <p>Run individual mobile application security scans</p>
+        
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab" onclick="window.location.href='/'">🔍 Embedded Scanner</button>
+            <button class="nav-tab active" onclick="showTab('mobile')">📱 Mobile Scanners</button>
+        </div>
+
+        <!-- Mobile Scanners Tab -->
+        <div id="mobile-tab" class="tab-content active">
+            <h2>📱 Mobile Application Scanners</h2>
+            <form method="post" action="/mobile-scan">
+                <div class="form-group">
+                    <label for="scanner">Select Scanner:</label>
+                    <select name="scanner" id="scanner" required {% if scan_in_progress %}disabled{% endif %}>
+                        <option value="">Choose a scanner...</option>
+                        <option value="mobsf">📱 MobSF (Mobile Security Framework)</option>
+                        <option value="apkhunt">🔍 APKHunt (APK Analysis)</option>
+                        <option value="semgrep">🔍 Semgrep (Static Analysis)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="target">Target:</label>
+                    <input type="text" name="target" id="target" 
+                           placeholder="e.g., app.apk for MobSF/APKHunt, /path/to/code for Semgrep" 
+                           required {% if scan_in_progress %}disabled{% endif %}>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="scan-btn" {% if scan_in_progress %}disabled{% endif %}>
+                        {% if scan_in_progress %}Scanning...{% else %}Start Mobile Scan{% endif %}
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="resetMobileScan()">
+                        🔄 Reset
+                    </button>
+                </div>
+            </form>
+            
+            <div class="scanner-info">
+                <h4>📋 Mobile Scanner Information</h4>
+                <p><strong>MobSF:</strong> Comprehensive mobile application security analysis - requires APK filename</p>
+                <p><strong>APKHunt:</strong> APK vulnerability hunting and analysis - requires APK filename</p>
+                <p><strong>Semgrep:</strong> Static analysis tool for finding bugs and security issues in code - requires code path</p>
+                <p><em>Note: APK files must be uploaded to MinIO bucket first for MobSF and APKHunt</em></p>
+            </div>
+        </div>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        
+        {% if scan_started %}
+            <div class="success">
+                <h3>✅ Mobile Scan Started!</h3>
+                <p>Scan Name: {{ scan_name }}</p>
+                <p>Scanner: {{ scanner }}</p>
+                <p>Target: {{ target }}</p>
+            </div>
+        {% endif %}
+        
+        {% if scan_in_progress %}
+            <div class="status">
+                <h3>🔄 Mobile Scan in Progress</h3>
+                <p>Please wait for the scan to complete...</p>
+                <div id="status-message">Checking scan status...</div>
+            </div>
+        {% endif %}
+
+        <!-- Download Section -->
+        {% if scan_name %}
+            <div style="margin-top: 2em; padding: 1em; background: #e8f5e8; border-radius: 4px;">
+                <h3>📥 Download Results</h3>
+                <form method="post" action="/mobile-download">
+                    <input type="hidden" name="scan_name" value="{{ scan_name }}">
+                    <button type="submit" class="btn-success">Download Findings</button>
+                </form>
+            </div>
+        {% endif %}
+
+        <div style="margin-top: 2em; padding-top: 1em; border-top: 1px solid #ddd;">
+            <h3>About Mobile App Scanners</h3>
+            <p>This tab provides access to mobile application security scanners:</p>
+            <ul>
+                <li><strong>MobSF:</strong> Comprehensive mobile app security analysis framework</li>
+                <li><strong>APKHunt:</strong> Specialized APK vulnerability hunting tool</li>
+                <li><strong>Semgrep:</strong> Static code analysis for security issues</li>
+            </ul>
+            <p><em>This is completely independent from the embedded device cascading scanner.</em></p>
+        </div>
+    </div>
+
+    <script>
+        function resetMobileScan() {
+            if (confirm('Reset the mobile scan state? This will allow you to start a new scan.')) {
+                fetch('/mobile-reset')
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Mobile scan state reset successfully!');
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        alert('Error resetting mobile scan state: ' + error.message);
+                    });
+            }
+        }
+
+        {% if scan_in_progress %}
+        function pollMobileStatus() {
+            fetch('/mobile-status').then(r => r.json()).then(data => {
+                const statusDiv = document.getElementById('status-message');
+                if (data.status === 'done') {
+                    statusDiv.innerHTML = '<span style="color: green;">✅ Mobile scan completed successfully!</span>';
+                    setTimeout(() => window.location.reload(), 2000);
+                } else if (data.status === 'running') {
+                    statusDiv.innerHTML = '<span style="color: blue;">🔄 Mobile scan is still running...</span>';
+                    setTimeout(pollMobileStatus, 5000);
+                } else if (data.status === 'error') {
+                    statusDiv.innerHTML = '<span style="color: red;">❌ Mobile scan failed: ' + (data.error || 'Unknown error') + '</span>';
+                }
+            }).catch(error => {
+                console.error('Error polling mobile status:', error);
+            });
+        }
+        
+        // Start polling when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            pollMobileStatus();
+        });
+        {% endif %}
+    </script>
+</body>
+</html> 

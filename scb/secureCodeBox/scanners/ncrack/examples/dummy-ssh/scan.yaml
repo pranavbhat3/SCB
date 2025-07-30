@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: "execution.securecodebox.io/v1"
+kind: Scan
+metadata:
+  name: "dummy-ssh"
+spec:
+  scanType: "ncrack"
+  parameters:
+    # Enable verbose logging, d10: Debug Level 10, printing more output to the console
+    - -v
+    - -d10
+    - -U
+    - /ncrack/users.txt
+    - -P
+    - /ncrack/passwords.txt
+    - ssh://dummy-ssh

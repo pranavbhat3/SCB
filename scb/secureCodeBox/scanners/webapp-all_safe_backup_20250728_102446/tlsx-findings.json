@@ -1,0 +1,42 @@
+[
+  {
+    "name": "TLSX Result for 192.168.2.10",
+    "description": "TLS version tls12 with cipher TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "category": "TLS Certificate Info",
+    "location": "192.168.2.10:443",
+    "osi_layer": "NETWORK",
+    "severity": "LOW",
+    "attributes": {
+      "timestamp": "2025-07-28T06:19:25.439970639Z",
+      "host": "192.168.2.10",
+      "ip": "192.168.2.10",
+      "port": "443",
+      "probe_status": true,
+      "tls_version": "tls12",
+      "cipher": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+      "self_signed": true,
+      "mismatched": true,
+      "not_before": "2025-07-03T12:36:07Z",
+      "not_after": "2075-06-22T12:36:07Z",
+      "subject_dn": "CN=ABB-IED-1VHR81034967, O=ABB, C=FI",
+      "subject_cn": "ABB-IED-1VHR81034967",
+      "subject_org": [
+        "ABB"
+      ],
+      "serial": "BF:C9:52:94:6A:D7:0A:C5",
+      "issuer_dn": "CN=ABB-IED-1VHR81034967, O=ABB, C=FI",
+      "issuer_cn": "ABB-IED-1VHR81034967",
+      "issuer_org": [
+        "ABB"
+      ],
+      "fingerprint_hash": {
+        "md5": "3b1f278407f73e0f3163176b76af6efb",
+        "sha1": "34a46cee6c8172f6b3edfad1744480bbefb5b4df",
+        "sha256": "eede1bdcd1366b62daf5d38a82adfe862207217e4a9df8851bcefeed2a10b063"
+      },
+      "tls_connection": "ctls",
+      "sni": "192.168.2.10",
+      "client_cert_required": false
+    }
+  }
+]

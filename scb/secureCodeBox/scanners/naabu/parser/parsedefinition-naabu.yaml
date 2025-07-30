@@ -1,0 +1,23 @@
+apiVersion: execution.securecodebox.io/v1
+kind: ParseDefinition
+metadata:
+  name: naabu-json
+  namespace: securecodebox-system
+spec:
+  image: pranavbhat3/naabu-parser:latest
+  contentType: Text
+  ttlSecondsAfterFinished: 3600
+  resources:
+    limits:
+      cpu: "400m"
+      memory: "200Mi"
+    requests:
+      cpu: "200m"
+      memory: "100Mi"
+  volumeMounts:
+    - name: naabu-parser-pvc
+      mountPath: /home/securecodebox
+  volumes:
+    - name: naabu-parser-pvc
+      persistentVolumeClaim:
+        claimName: naabu-parser-pvc 

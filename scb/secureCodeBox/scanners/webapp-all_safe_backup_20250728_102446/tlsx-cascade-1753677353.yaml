@@ -1,0 +1,15 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: tlsx-cascade-1753677353
+  namespace: securecodebox-system
+spec:
+  scanType: "tlsx"
+  parameters:
+    - "-host"
+    - "192.168.2.10"
+    - "-p"
+    - "21,80,102,443"
+    - "-json"
+    - "-o"
+    - "/home/securecodebox/raw-results.json"

@@ -1,0 +1,9 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: naabu-scan-scanme5
+  namespace: securecodebox-system
+spec:
+  scanType: naabu
+  parameters:
+    - target=scanme.sh

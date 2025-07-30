@@ -1,0 +1,113 @@
+{{- /*
+SPDX-FileCopyrightText: the secureCodeBox authors
+
+SPDX-License-Identifier: Apache-2.0
+*/ -}}
+
+{{- define "extra.docsSection" -}}
+---
+title: "Trivy"
+category: "scanner"
+type: "Container"
+state: "released"
+appVersion: "{{ template "chart.appVersion" . }}"
+usecase: "Container Vulnerability Scanner"
+---
+{{- end }}
+
+{{- define "extra.dockerDeploymentSection" -}}
+## Supported Tags
+- `latest`  (represents the latest stable release build)
+- tagged releases, e.g. `3.0.0`, `2.9.0`, `2.8.0`, `2.7.0`
+{{- end }}
+
+{{- define "extra.chartAboutSection" -}}
+## What is Trivy?
+
+`Trivy` (`tri` pronounced like **tri**gger, `vy` pronounced like en**vy**) is a simple and comprehensive vulnerability scanner for containers and other artifacts.
+A software vulnerability is a glitch, flaw, or weakness present in the software or in an Operating System.
+`Trivy` detects vulnerabilities of OS packages (Alpine, RHEL, CentOS, etc.) and application dependencies (Bundler, Composer, npm, yarn, etc.).
+`Trivy` is easy to use. Just install the binary, and you're ready to scan. All you need to do for scanning is to specify a target such as an image name of the container.
+
+To learn more about the Trivy scanner itself visit [Trivy's GitHub Repository](https://github.com/aquasecurity/trivy).
+{{- end }}
+
+{{- define "extra.scannerConfigurationSection" -}}
+## Scanner Configuration
+
+The following security scan configuration example are based on the [Trivy Documentation](https://aquasecurity.github.io/trivy/), please take a look at the original documentation for more configuration examples.
+
+### Trivy Container Image Scan
+
+Currently we support the follwing 4 scanTypes, corresponding to the trivy scanning modes:
+- scanType: "trivy-image"
+   - parameters: `[YOUR_IMAGE_NAME]`
+- scanType: "trivy-filesystem"
+   - parameters: `[YOUR_PATH_TO_FILES]`
+- scanType: "trivy-repo"
+   - parameters: `[YOUR_GITHUB_REPO]`
+- scanType: "trivy-k8s"
+   - parameters: `[KUBERNETES_RESOURCE]`
+
+A complete example of each scanType are listed below in our [example docs section](https://www.securecodebox.io/docs/scanners/trivy/#examples).
+
+Simply specify an image name (and a tag) when you use the scanType `trivy-image`. But there are also some additional configuration options e.g:
+- Filter the vulnerabilities by severities `--severity HIGH,CRITICAL ruby:2.4.0`
+- Filter the vulnerabilities by type (`os` or `library`) `--vuln-type os ruby:2.4.0`
+- Skip update of vulnerability DB: `--skip-update python:3.4-alpine3.9`
+- Ignore unfixed vulnerabilities:`--ignore-unfixed ruby:2.4.0` By default, Trivy also detects unpatched/unfixed vulnerabilities. This means you can't fix these vulnerabilities even if you update all packages. If you would like to ignore them, use the `--ignore-unfixed` option.
+
+A complete scan definition for the secureCodeBox repository may look something like this:
+```yaml
+apiVersion: "execution.securecodebox.io/v1"
+kind: Scan
+metadata:
+  name: "trivy-scb"
+spec:
+  scanType: "trivy-image"
+  parameters:
+    - bkimminich/juice-shop:v10.2.0
+```
+
+### Scanning Many Targets
+By default, the docker container of trivy will download the vulnerability database when starting the process.
+As this download is performed directly from GitHub, you will run into API rate limiting issues after roughly 50 requests.
+Trivy [supports a client-server mode](https://aquasecurity.github.io/trivy/latest/docs/references/modes/client-server/) where one process downloads a copy of the vulnerability database and provides it to the others.
+
+This mode is implemented and active by default.
+A separate Deployment for the trivy server will be created during the installation and the trivy scanTypes are automatically configured to run in client mode and connect to the server.
+
+:::caution
+
+Client/server mode is not used for `trivy-k8s` scans, because trivy does not support it for this type of scan.
+If you start many `trivy-k8s` scans you might run into rate limits.
+One way to avoid that is to [preemptively download](https://aquasecurity.github.io/trivy/latest/docs/advanced/air-gap/) the trivy database once and then provide it similar to how the [nuclei template cache](https://www.securecodebox.io/docs/scanners/nuclei/#install-nuclei-without-template-cache-cronjob--persistentvolume) is handled.
+:::
+
+In case only a single scan or very few are run, and you want to avoid the small performance overhead, client/server mode can be disabled by setting `--set="trivyDatabaseCache.enabled=false"` during helm install.
+
+## Parser specifics
+Our parser customizes the format of Trivy scan results by using a unique `location` attribute that employs a custom URL format (`scb://trivy/`) with URL parameters. These parameters are extracted from the corresponding scan result file attributes and vary depending on the type of scan performed — either a Kubernetes (K8S) resource scan or a container image scan.
+
+### URL Format Patterns
+#### For Kubernetes (K8S) Resource Scans:
+`scb://trivy/?ClusterName=<ClusterName>&Namespace=<Namespace>&Kind=<Kind>&Name=<Name>`
+
+##### Parameters:
+- ClusterName: The name of the Kubernetes cluster (optional).
+- Namespace: The namespace within the cluster (optional).
+- Kind: The type of Kubernetes resource (e.g., Deployment, Service, Pod).
+- Name: The name of the resource.
+
+#### For Container Image Scans:
+`scb://trivy/?ArtifactName=<ArtifactName>`
+
+##### Parameter:
+- ArtifactName: The name (and optionally the tag) of the container image.
+{{- end }}
+
+{{- define "extra.chartConfigurationSection" -}}
+{{- end }}
+
+{{- define "extra.scannerLinksSection" -}}
+{{- end }}

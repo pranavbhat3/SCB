@@ -1,0 +1,33 @@
+matches the snapshot:
+  1: |
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      name: auto-discovery-cloud-aws
+    rules:
+      - apiGroups:
+          - execution.securecodebox.io
+        resources:
+          - scheduledscans
+        verbs:
+          - create
+          - delete
+  2: |
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: auto-discovery-cloud-aws
+      namespace: NAMESPACE
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: Role
+      name: auto-discovery-cloud-aws
+    subjects:
+      - kind: ServiceAccount
+        name: auto-discovery-cloud-aws
+        namespace: NAMESPACE
+  3: |
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: auto-discovery-cloud-aws

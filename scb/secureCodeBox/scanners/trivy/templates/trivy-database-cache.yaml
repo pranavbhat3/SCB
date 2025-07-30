@@ -1,0 +1,97 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+{{ if .Values.trivyDatabaseCache.enabled }}
+# We use trivy in client/server mode for central storing of the trivy vulnerability database to prevent downloading it for each scan again, enabled by default.
+# First declare a service that will serve requests to the database cache pod
+kind: Service
+apiVersion: v1
+metadata:
+  name: trivy-database
+  labels:
+    app: trivy-database
+spec:
+  selector:
+    app: trivy-database
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  type: ClusterIP
+---
+# Now declare the actual deployment of the database cache server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trivy-database
+  labels:
+    app: trivy-database
+spec:
+  replicas: {{ .Values.trivyDatabaseCache.replicas }}
+  selector:
+    matchLabels:
+      app: trivy-database
+  template:
+    metadata:
+      labels:
+        app: trivy-database
+    spec:
+      automountServiceAccountToken: false
+      {{- with .Values.trivyDatabaseCache.podSecurityContext }}
+      securityContext:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+      - name: cache-dir
+        emptyDir:
+          sizeLimit: {{ .Values.trivyDatabaseCache.cacheStorageLimit }}
+      - name: tmp-dir
+        emptyDir:
+          sizeLimit: {{ .Values.trivyDatabaseCache.cacheStorageLimit }}
+      containers:
+      - name: trivy-database
+        image: "{{ .Values.scanner.image.repository }}:{{ .Values.scanner.image.tag | default .Chart.AppVersion }}"
+        volumeMounts:
+        - name: cache-dir
+          mountPath: /.cache
+        - name: tmp-dir
+          mountPath: /tmp
+        imagePullPolicy: IfNotPresent
+        {{- with .Values.trivyDatabaseCache.securityContext }}
+        securityContext:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        resources:
+          {{- toYaml .Values.trivyDatabaseCache.resources | nindent 10 }}
+        args:
+        - "server"
+        - "--listen"
+        - "0.0.0.0:8080"
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+          name: trivy-http
+        livenessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /healthz
+            port: trivy-http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 10
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /healthz
+            port: trivy-http
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+{{- end }}

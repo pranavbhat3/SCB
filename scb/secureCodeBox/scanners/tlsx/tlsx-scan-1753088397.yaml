@@ -1,0 +1,10 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: tlsx-scan-1753088397
+  namespace: securecodebox-system
+spec:
+  scanType: "tlsx"
+  parameters:
+    - "-host"
+    - "google.com"\n    - "-json"\n    - "-o"\n    - "/home/securecodebox/raw-results.json"

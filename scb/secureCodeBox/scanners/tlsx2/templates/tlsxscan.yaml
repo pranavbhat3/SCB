@@ -1,0 +1,10 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: tlsx2-scan-example
+  namespace: securecodebox-system
+spec:
+  scanType: "tlsx2"
+  parameters:
+    - name: host
+      value: "example.com"

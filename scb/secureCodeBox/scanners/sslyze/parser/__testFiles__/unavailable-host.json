@@ -1,0 +1,32 @@
+{
+  "invalid_server_strings": [],
+  "server_scan_results": [
+    {
+      "uuid": "81082250-ac8d-4fb5-a0a1-74f3a86392dc",
+      "server_location": {
+        "hostname": "192.168.0.107",
+        "port": 443,
+        "connection_type": "DIRECT",
+        "ip_address": "192.168.0.107",
+        "http_proxy_settings": null
+      },
+      "network_configuration": {
+        "tls_server_name_indication": "192.168.0.107",
+        "tls_opportunistic_encryption": null,
+        "tls_client_auth_credentials": null,
+        "xmpp_to_hostname": null,
+        "network_timeout": 5,
+        "network_max_retries": 3
+      },
+      "connectivity_status": "ERROR",
+      "connectivity_error_trace": "Traceback (most recent call last):\n  File \"D:\\a\\sslyze\\sslyze\\sslyze\\scanner\\_mass_connectivity_tester.py\", line 120, in run\n  File \"D:\\a\\sslyze\\sslyze\\sslyze\\server_connectivity.py\", line 74, in check_connectivity_to_server\n  File \"D:\\a\\sslyze\\sslyze\\sslyze\\server_connectivity.py\", line 244, in _detect_support_for_tls_1_3\n  File \"D:\\a\\sslyze\\sslyze\\sslyze\\connection_helpers\\tls_connection.py\", line 266, in connect\nsslyze.errors.ConnectionToServerTimedOut: 192.168.0.107:443 -> \"Connection to the server timed out\".\n",
+      "connectivity_result": null,
+      "scan_status": "ERROR_NO_CONNECTIVITY",
+      "scan_result": null
+    }
+  ],
+  "date_scans_started": "2024-09-03T11:16:28.459875Z",
+  "date_scans_completed": "2024-09-03T11:16:33.493072Z",
+  "sslyze_version": "6.0.0",
+  "sslyze_url": "https://github.com/nabla-c0d3/sslyze"
+}

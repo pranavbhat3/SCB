@@ -1,0 +1,66 @@
+{{- if .Values.scan }}
+apiVersion: execution.securecodebox.io/v1
+kind: ScanType
+metadata:
+  name: mobsf
+  labels:
+    {{- include "mobsf.labels" . | nindent 4 }}
+spec:
+  # Extracts findings from the scan results
+  extractResults:
+    type: mobsf
+    location: /home/securecodebox/result.json
+  # Job template for the scanner
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: mobsf-wrapper
+              image: {{ .Values.scan.scannerImage.repository }}
+              imagePullPolicy: {{ .Values.scan.scannerImage.pullPolicy }}
+              command: ["python", "/app/mobsf_wrapper.py"]
+              args:
+                - "$(SCB_SCAN_PARAM_0)"
+              env:
+                - name: MINIO_ENDPOINT
+                  value: "{{ .Values.scan.minio.endpoint }}"
+                - name: MINIO_ACCESS_KEY
+                  value: "{{ .Values.scan.minio.accessKey }}"
+                - name: MINIO_SECRET_KEY
+                  value: "{{ .Values.scan.minio.secretKey }}"
+                - name: INPUT_BUCKET
+                  value: "{{ .Values.scan.minio.inputBucket }}"
+                - name: OUTPUT_BUCKET
+                  value: "{{ .Values.scan.minio.outputBucket}}"
+                - name: MOBSF_URL
+                  value: "{{ .Values.scan.mobsfUrl }}"
+                - name: MOBSF_API_KEY
+                  value: "{{ .Values.apiKey }}"
+              resources:
+                requests:
+                  memory: "512Mi"
+                  cpu: "250m"
+                limits:
+                  memory: "1Gi"
+                  cpu: "500m"
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                runAsNonRoot: true
+                runAsUser: 1000
+                capabilities:
+                  drop:
+                    - ALL
+              volumeMounts:
+                - name: tmp
+                  mountPath: /tmp
+          volumes:
+            - name: tmp
+              emptyDir: {}
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1000
+            fsGroup: 1000
+{{- end }} 

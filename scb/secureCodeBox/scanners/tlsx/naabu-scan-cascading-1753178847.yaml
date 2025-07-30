@@ -1,0 +1,16 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: naabu-scan-cascading-1753178847
+  namespace: securecodebox-system
+spec:
+  scanType: naabu
+  extractResults:
+    type: naabu-json-scbcompatible
+    location: /home/securecodebox/raw-results.json
+  parameters:
+    - "-host"
+    - "scanme.nmap.org"
+    - "-json"
+    - "-o"
+    - "/home/securecodebox/raw-results.json"

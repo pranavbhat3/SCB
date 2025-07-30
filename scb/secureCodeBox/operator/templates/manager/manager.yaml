@@ -1,0 +1,154 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: securecodebox-controller-manager
+  namespace: {{ .Release.Namespace }}
+  labels:
+    control-plane: securecodebox-controller-manager
+spec:
+  selector:
+    matchLabels:
+      control-plane: securecodebox-controller-manager
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        control-plane: securecodebox-controller-manager
+    spec:
+      {{- if .Values.customCACertificate.existingCertificate }}
+      volumes:
+        - name: ca-certificate
+          configMap:
+            name: {{ .Values.customCACertificate.existingCertificate }}
+      {{- end }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      securityContext:
+        {{ .Values.podSecurityContext | toYaml | nindent 8 }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - command:
+            - /manager
+          args:
+          - --leader-elect
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.Version }}"
+          {{- if .Values.customCACertificate.existingCertificate }}
+          volumeMounts:
+            - name: ca-certificate
+              mountPath: /etc/ssl/certs/{{ .Values.customCACertificate.certificate }}
+              subPath: {{ .Values.customCACertificate.certificate }}
+          {{- end }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: manager
+          ports:
+            - name: metrics
+              containerPort: 8080
+            - name: healthchecks
+              containerPort: 8081
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: healthchecks
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: healthchecks
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          env:
+            - name: TELEMETRY_ENABLED
+              value: {{ .Values.telemetryEnabled | quote }}
+            - name: VERSION
+              value: {{ .Chart.Version | quote }}
+            # TODO: integrate with cert manager and auto gen a cert for minio
+            {{- if .Values.minio.enabled }}
+            - name: S3_USE_SSL
+              value: "{{ .Values.minio.tls.enabled }}"
+            - name: S3_ENDPOINT
+              value: "{{ .Release.Name }}-minio.{{ .Release.Namespace }}.svc.cluster.local"
+            - name: S3_PORT
+              value: '9000'
+            - name:  MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Release.Name }}-minio"
+                  key: root-user
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Release.Name }}-minio"
+                  key: root-password
+            - name: S3_BUCKET
+              value: {{ .Values.minio.defaultBuckets }}
+            {{- else }}
+            - name: S3_USE_SSL
+              # Always use tls when connecting to outside the cluster.
+              value: "{{ .Values.s3.tls.enabled }}"
+            - name: S3_ENDPOINT
+              value: {{ .Values.s3.endpoint | quote }}
+            - name: S3_BUCKET
+              value: {{ .Values.s3.bucket }}
+            {{- if .Values.s3.port }}
+            - name: S3_PORT
+              value: {{ .Values.s3.port }}
+            {{- end }}
+            - name: S3_AUTH_TYPE
+              value: {{ .Values.s3.authType }}
+            {{- if eq .Values.s3.authType "access-secret-key" }}
+            - name:  MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.s3.keySecret }}
+                  key: {{ .Values.s3.secretAttributeNames.accesskey }}
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.s3.keySecret }}
+                  key: {{ .Values.s3.secretAttributeNames.secretkey }}
+            {{- end }}
+            {{- if eq .Values.s3.authType "aws-irsa" }}
+            - name: S3_AWS_IRSA_STS_ENDPOINT
+              value: {{ .Values.s3.awsStsEndpoint | quote }}
+            {{- end }}
+            {{- end }}
+            - name: LURKER_IMAGE
+              value: "{{ .Values.lurker.image.repository }}:{{ .Values.lurker.image.tag | default .Chart.Version }}"
+            - name: LURKER_PULL_POLICY
+              value: {{ .Values.lurker.image.pullPolicy }}
+            - name: LURKER_SECCOMP_PROFILE
+              value: {{ .Values.securityContext.seccompProfile.type }}
+            {{- if .Values.customCACertificate.existingCertificate }}
+            - name: CUSTOM_CA_CERTIFICATE_EXISTING_CERTIFICATE
+              value: {{ .Values.customCACertificate.existingCertificate | quote }}
+            - name: CUSTOM_CA_CERTIFICATE_NAME
+              value: {{ .Values.customCACertificate.certificate | quote }}
+            {{ end }}
+            {{- if .Values.s3.urlTemplate }}
+            - name: S3_URL_TEMPLATE
+              value: {{ .Values.s3.urlTemplate | quote }}
+            {{ end }}
+            - name: URL_EXPIRATION_SCAN
+              value: {{ .Values.presignedUrlExpirationTimes.scanners | quote }}
+            - name: URL_EXPIRATION_PARSER
+              value: {{ .Values.presignedUrlExpirationTimes.parsers | quote }}
+            - name: URL_EXPIRATION_HOOK
+              value: {{ .Values.presignedUrlExpirationTimes.hooks | quote }}
+            - name: ALLOW_ISTIO_SIDECAR_INJECTION_IN_JOBS
+              value: {{ .Values.allowIstioSidecarInjectionInJobs | quote }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      terminationGracePeriodSeconds: 10

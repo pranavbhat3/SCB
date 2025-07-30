@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+name: update-field-hook
+description: Lets you add or override a field to every finding
+
+type: application
+
+# version - gets automatically set to the secureCodeBox release version when the helm charts gets published
+version: v3.1.0-alpha1
+kubeVersion: ">=v1.11.0-0"
+
+dependencies: []

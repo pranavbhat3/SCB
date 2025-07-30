@@ -1,0 +1,19 @@
+apiVersion: "cascading.securecodebox.io/v1"
+kind: CascadingRule
+metadata:
+  name: "naabu-to-tlsx-matchall"
+  namespace: securecodebox-system
+spec:
+  matches:
+    anyOf:
+      - category: "Open Port"
+  scanSpec:
+    scanType: "tlsx"
+    parameters:
+      - "-host"
+      - "{{$.hostOrIP}}"
+      - "-p"
+      - "{{attributes.port}}"
+      - "-json"
+      - "-o"
+      - "/home/securecodebox/raw-results.json" 

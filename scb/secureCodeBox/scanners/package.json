@@ -1,0 +1,48 @@
+{
+  "name": "@securecodebox/scanner",
+  "version": "1.0.0",
+  "description": "NPM library to easily set up new scanners for the secureCodeBox",
+  "homepage": "https://www.secureCodeBox.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secureCodeBox/secureCodeBox.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test:unit": "jest --verbose --testPathIgnorePatterns /integration-tests/ --ci --colors --coverage --passWithNoTests",
+    "test:integration": "jest --verbose --ci --colors --coverage --passWithNoTests"
+  },
+  "keywords": [
+    "secureCodeBox",
+    "security",
+    "scanner"
+  ],
+  "author": {
+    "name": "iteratec GmbH",
+    "email": "securecodebox@iteratec.com",
+    "url": "https://www.iteratec.com"
+  },
+  "contributors": [
+    {
+      "name": "Jannik Hollenbach",
+      "url": "https://github.com/J12934"
+    },
+    {
+      "name": "Robert Seedorff",
+      "url": "https://github.com/rseedorff"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/secureCodeBox/secureCodeBox/issues"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@kubernetes/client-node": "^0.19.0",
+    "@securecodebox/parser-sdk-nodejs": "file:../parser-sdk/nodejs",
+    "jest": "^29.7.0",
+    "prettier": "^3.4.2",
+    "@types/jest": "^29.5.14",
+    "ts-jest": "^29.2.5"
+  },
+  "dependencies": {}
+}

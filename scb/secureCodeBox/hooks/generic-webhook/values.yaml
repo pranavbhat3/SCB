@@ -1,0 +1,66 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# Default values for dispatcher.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# webhookUrl -- The URL of your WebHook endpoint
+webhookUrl: "http://example.com"
+
+# -- Define imagePullSecrets when a private registry is used (see: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
+imagePullSecrets: []
+
+hook:
+  image:
+    # hook.image.repository -- Hook image repository
+    repository: docker.io/securecodebox/hook-generic-webhook
+    # hook.image.tag -- The image Tag defaults to the charts version if not defined.
+    # @default -- defaults to the charts version
+    tag: null
+
+  # hook.labels -- Add Kubernetes Labels to the hook definition
+  labels: {}
+
+  # -- Hook priority. Higher priority Hooks are guaranteed to execute before low priority Hooks.
+  priority: 0
+
+  # hook.ttlSecondsAfterFinished -- Seconds after which the kubernetes job for the hook will be deleted. Requires the Kubernetes TTLAfterFinished controller: https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/
+  ttlSecondsAfterFinished: null
+
+  # hook.affinity -- Optional affinity settings that control how the hook job is scheduled (see: https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes-using-node-affinity/)
+  affinity: {}
+
+  # hook.tolerations -- Optional tolerations settings that control how the hook job is scheduled (see: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
+  tolerations: []
+
+  # hook.authentication -- Optional basic authentication credentials or apikey
+  authentication:
+    apikey:
+      # -- Link a pre-existing generic secret with `headerNameKey` and `headerValueKey` key / value pairs
+      userSecret: generic-webhook-credentials
+      # -- Name of the header name key in the `userSecret` secret. Use this if you already have a secret with different key / value pairs
+      headerNameKey: headerName
+      # -- Name of the header value key in the `userSecret` secret. Use this if you already have a secret with different key / value pairs
+      headerValueKey: headerValue
+    basic:
+      # -- Link a pre-existing generic secret with `usernameKey` and `passwordKey` key / value pairs
+      userSecret: generic-webhook-credentials
+      # -- Name of the username key in the `userSecret` secret. Use this if you already have a secret with different key / value pairs
+      usernameKey: username
+      # -- Name of the password key in the `userSecret` secret. Use this if you already have a secret with different key / value pairs
+      passwordKey: password
+
+  # -- Optional resources lets you control resource limits and requests for the hook container. See https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+  # @default -- `{ requests: { cpu: "200m", memory: "100Mi" }, limits: { cpu: "400m", memory: "200Mi" } }`
+  resources: {}
+
+  # hook.extraVolumes -- Optional Volumes mapped into the hook (see: https://kubernetes.io/docs/concepts/storage/volumes/)
+  extraVolumes: []
+
+  # hook.extraVolumeMounts -- Optional VolumeMounts mapped into the hook (see: https://kubernetes.io/docs/concepts/storage/volumes/)
+  extraVolumeMounts: []
+
+  # hook.env -- Optional environment variables mapped into the hook (see: https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
+  env: []

@@ -1,0 +1,178 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    auto-discovery.securecodebox.io/ignore: "true"
+    sidecar.istio.io/inject: "false"
+  creationTimestamp: "2025-07-18T16:08:33Z"
+  generateName: parse-tlsx-scan-1752854891-2mbkg-
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: securecodebox
+    batch.kubernetes.io/controller-uid: 44bc3414-03e5-4890-833f-659ad6e47ffb
+    batch.kubernetes.io/job-name: parse-tlsx-scan-1752854891-2mbkg
+    controller-uid: 44bc3414-03e5-4890-833f-659ad6e47ffb
+    job-name: parse-tlsx-scan-1752854891-2mbkg
+  name: parse-tlsx-scan-1752854891-2mbkg-7sv2d
+  namespace: securecodebox-system
+  ownerReferences:
+  - apiVersion: batch/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Job
+    name: parse-tlsx-scan-1752854891-2mbkg
+    uid: 44bc3414-03e5-4890-833f-659ad6e47ffb
+  resourceVersion: "393020"
+  uid: c3edee33-b739-4c86-ae58-0d75ed971752
+spec:
+  automountServiceAccountToken: true
+  containers:
+  - args:
+    - http://securecodebox-operator-minio.securecodebox-system.svc.cluster.local:9000/securecodebox/scan-00f7f877-38c6-48ef-8ee7-300b1d7b7a45/raw-results.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20250718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250718T160832Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=d03051572a4faa6250296574a757c9e220e9aef59bb719cc3901ba39d99f7011
+    - http://securecodebox-operator-minio.securecodebox-system.svc.cluster.local:9000/securecodebox/scan-00f7f877-38c6-48ef-8ee7-300b1d7b7a45/findings.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=admin%2F20250718%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250718T160832Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=97a04852828eb67bdbf8962170d1e0807b6f12475688ad3efbe8e3b103c65cd0
+    env:
+    - name: NAMESPACE
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.namespace
+    - name: SCAN_NAME
+      value: tlsx-scan-1752854891
+    - name: MINIO_ENDPOINT
+      value: http://securecodebox-operator-minio.securecodebox-system.svc.cluster.local:9000
+    - name: MINIO_ACCESS_KEY
+      value: admin
+    - name: MINIO_SECRET_KEY
+      value: password
+    - name: MINIO_BUCKET
+      value: securecodebox
+    - name: MINIO_SECURE
+      value: "false"
+    image: pranavbhat3/tlsx-parser:latest
+    imagePullPolicy: Always
+    name: parser
+    resources:
+      limits:
+        cpu: 400m
+        memory: 200Mi
+      requests:
+        cpu: 200m
+        memory: 100Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - all
+      privileged: false
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-2lvpq
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: parser
+  serviceAccountName: parser
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-2lvpq
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-18T16:08:48Z"
+    status: "False"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-18T16:08:33Z"
+    reason: PodCompleted
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-18T16:08:47Z"
+    reason: PodCompleted
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-18T16:08:47Z"
+    reason: PodCompleted
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-07-18T16:08:33Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - allocatedResources:
+      cpu: 200m
+      memory: 100Mi
+    containerID: docker://cb39c68285dbc2ba5f8f52c2bb3959ed5bed349e0a4827800bbc7fe43c4a3523
+    image: pranavbhat3/tlsx-parser:latest
+    imageID: docker-pullable://pranavbhat3/tlsx-parser@sha256:8d3a2485189651f081cc1a5f2f564c7cd4e95f40ecd4debcd514d76a5a087360
+    lastState: {}
+    name: parser
+    ready: false
+    resources:
+      limits:
+        cpu: 400m
+        memory: 200Mi
+      requests:
+        cpu: 200m
+        memory: 100Mi
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: docker://cb39c68285dbc2ba5f8f52c2bb3959ed5bed349e0a4827800bbc7fe43c4a3523
+        exitCode: 0
+        finishedAt: "2025-07-18T16:08:46Z"
+        reason: Completed
+        startedAt: "2025-07-18T16:08:38Z"
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-2lvpq
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 192.168.112.2
+  hostIPs:
+  - ip: 192.168.112.2
+  phase: Succeeded
+  podIP: 10.244.2.106
+  podIPs:
+  - ip: 10.244.2.106
+  qosClass: Burstable
+  startTime: "2025-07-18T16:08:33Z"

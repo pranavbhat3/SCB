@@ -1,0 +1,23 @@
+apiVersion: execution.securecodebox.io/v1
+kind: ScanType
+metadata:
+  name: wappalyzer
+  namespace: securecodebox-system
+spec:
+  extractResults:
+    type: wappalyzer-json
+    location: "/tmp/wappalyzer-results.json"
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: wappalyzer
+              image: wappalyzer/cli:latest
+              command:
+                - "sh"
+                - "-c"
+              args:
+                - "wappalyzer {{target}} --format json > /tmp/wappalyzer-results.json" 

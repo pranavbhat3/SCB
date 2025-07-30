@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+overrides:
+  - files: "*.yaml"
+    options:
+      bracketSpacing: false
+  - files: "*.yml"
+    options:
+      bracketSpacing: false

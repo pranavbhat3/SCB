@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: "execution.securecodebox.io/v1"
+kind: ScanCompletionHook
+metadata:
+  name: {{ include "notification-hook.fullname" . }}
+  labels:
+    {{- include "notification-hook.labels" . | nindent 4 }}
+    {{- with .Values.hook.labels }}
+    {{ toYaml . }}
+    {{- end }}
+spec:
+  priority: {{ .Values.hook.priority }}
+  type: ReadOnly
+  imagePullPolicy: "{{ .Values.hook.image.pullPolicy }}"
+  image: "{{ .Values.hook.image.repository }}:{{ .Values.hook.image.tag | default .Chart.Version }}"
+  ttlSecondsAfterFinished: {{ .Values.hook.ttlSecondsAfterFinished }}
+  volumes:
+    - name: {{ .Release.Name }}-config
+      configMap:
+        name: {{ .Release.Name }}-config
+    {{  if .Values.customTemplateMap.exists }}
+    - name: {{ .Release.Name }}-custom-templates
+      configMap:
+        name: {{ .Values.customTemplateMap.name }} 
+    {{ end }}
+    {{ if .Values.hook.extraVolumes }}
+    {{- toYaml .Values.hook.extraVolumes | nindent 4 }}
+    {{ end }}
+  volumeMounts:
+    - name: {{ .Release.Name }}-config
+      mountPath: /home/app/config
+      readOnly: true
+    {{  if .Values.customTemplateMap.exists}}
+    - name: {{ .Release.Name }}-custom-templates
+      mountPath: /home/app/hook-wrapper/hook/notification-templates 
+    {{ end }}
+    {{ if .Values.hook.extraVolumeMounts }}
+    {{- toYaml .Values.hook.extraVolumeMounts | nindent 4 }}
+    {{ end }}
+  env:
+    {{- toYaml .Values.env | nindent 4}} 
+    {{ if .Values.hook.env }}
+    {{- toYaml .Values.hook.env | nindent 4 }}
+    {{ end }}
+  affinity:
+    {{- toYaml .Values.hook.affinity | nindent 4 }}
+  tolerations:
+    {{- toYaml .Values.hook.tolerations | nindent 4 }}
+  {{- with .Values.imagePullSecrets }}
+  imagePullSecrets:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.hook.resources }}
+  resources:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}

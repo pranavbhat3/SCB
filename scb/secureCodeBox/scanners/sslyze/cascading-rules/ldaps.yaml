@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: "cascading.securecodebox.io/v1"
+kind: CascadingRule
+metadata:
+  name: "ldaps-tls-scan"
+  labels:
+    securecodebox.io/invasive: non-invasive
+    securecodebox.io/intensive: light
+spec:
+  matches:
+    anyOf:
+      - category: "Open Port"
+        attributes:
+          port: 636
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "ldapssl"
+          state: open
+  scanSpec:
+    scanType: "sslyze"
+    parameters:
+      ["--mozilla_config=intermediate", "{{$.hostOrIP}}:{{attributes.port}}"]

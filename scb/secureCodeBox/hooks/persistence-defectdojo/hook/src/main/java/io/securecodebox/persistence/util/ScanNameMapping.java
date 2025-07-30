@@ -1,0 +1,54 @@
+// SPDX-FileCopyrightText: the secureCodeBox authors
+//
+// SPDX-License-Identifier: Apache-2.0
+package io.securecodebox.persistence.util;
+
+import io.securecodebox.persistence.defectdojo.ScanType;
+import lombok.NonNull;
+
+public enum ScanNameMapping {
+  NMAP("nmap", ScanType.NMAP_XML_SCAN),
+  ZAP_AUTOMATION_FRAMEWORK("zap-automation-framework", ScanType.ZAP_SCAN),
+  SSLYZE("sslyze", ScanType.SSLYZE_SCAN),
+  SSH_AUDIT("ssh-audit", ScanType.SSH_AUDIT_IMPORTER),
+  TRIVY_IMAGE("trivy-image", ScanType.TRIVY_SCAN),
+  TRIVY_IMAGE_AUTODISCOVERY("trivy-image-autodiscovery", ScanType.TRIVY_SCAN),
+  TRIVY_FILESYSTEM("trivy-filesystem", ScanType.TRIVY_SCAN),
+  TRIVY_REPO("trivy-repo", ScanType.TRIVY_SCAN),
+  TRIVY_K8S("trivy-k8s", ScanType.TRIVY_SCAN),
+  GITLEAKS("gitleaks", ScanType.GITLEAKS_SCAN),
+  NIKTO("nikto", ScanType.NIKTO_SCAN),
+  NUCLEI("nuclei", ScanType.NUCLEI_SCAN),
+  WPSCAN("wpscan", ScanType.WPSCAN),
+  SEMGREP("semgrep", ScanType.SEMGREP_JSON_REPORT),
+  GENERIC(null, ScanType.GENERIC_FINDINGS_IMPORT);
+
+  /**
+   * DefectDojo Scan Type
+   *
+   * @see ScanType
+   */
+  public final ScanType defectDojoScanType;
+
+  /**
+   * secureCodeBox ScanType
+   * <p>
+   * Examples: {@literal "nmap"}, {@literal }"zap-automation-framework"}
+   * </p>
+   */
+  public final String secureCodeBoxbScanType;
+
+  ScanNameMapping(String secureCodeBoxbScanType, ScanType defectDojoScanType) {
+    this.secureCodeBoxbScanType = secureCodeBoxbScanType;
+    this.defectDojoScanType = defectDojoScanType;
+  }
+
+  public static ScanNameMapping bySecureCodeBoxScanType(@NonNull String scanType) {
+    for (var mapping : ScanNameMapping.values()) {
+      if (scanType.equals(mapping.secureCodeBoxbScanType)) {
+        return mapping;
+      }
+    }
+    return ScanNameMapping.GENERIC;
+  }
+}

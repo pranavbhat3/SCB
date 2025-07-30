@@ -1,0 +1,164 @@
+[
+  {
+    "name": "Content Security Policy (CSP) Header Not Set",
+    "description": "Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.",
+    "hint": null,
+    "category": "Content Security Policy (CSP) Header Not Set",
+    "location": "http://nginx.demo-targets.svc",
+    "osi_layer": "APPLICATION",
+    "severity": "MEDIUM",
+    "references": [
+      {
+        "type": "URL",
+        "value": "https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy"
+      },
+      {
+        "type": "URL",
+        "value": "https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html"
+      },
+      {
+        "type": "URL",
+        "value": "https://www.w3.org/TR/CSP/"
+      },
+      {
+        "type": "URL",
+        "value": "https://w3c.github.io/webappsec-csp/"
+      },
+      {
+        "type": "URL",
+        "value": "https://web.dev/articles/csp"
+      },
+      {
+        "type": "URL",
+        "value": "https://caniuse.com/#feat=contentsecuritypolicy"
+      },
+      {
+        "type": "URL",
+        "value": "https://content-security-policy.com/"
+      },
+      {
+        "type": "CWE",
+        "value": "CWE-693"
+      },
+      {
+        "type": "URL",
+        "value": "https://cwe.mitre.org/data/definitions/693.html"
+      }
+    ],
+    "mitigation": "Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.",
+    "attributes": {
+      "hostname": "nginx.demo-targets.svc",
+      "port": "80",
+      "zap_confidence": "3",
+      "zap_count": "3",
+      "zap_solution": "Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.",
+      "zap_otherinfo": null,
+      "zap_reference": "https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policyhttps://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.htmlhttps://www.w3.org/TR/CSP/https://w3c.github.io/webappsec-csp/https://web.dev/articles/csphttps://caniuse.com/#feat=contentsecuritypolicyhttps://content-security-policy.com/",
+      "zap_cweid": "693",
+      "zap_wascid": "15",
+      "zap_riskcode": "2",
+      "zap_pluginid": "10038",
+      "zap_finding_urls": [
+        {
+          "uri": "http://nginx.demo-targets.svc",
+          "method": "GET",
+          "param": "",
+          "attack": "",
+          "evidence": "",
+          "otherinfo": ""
+        },
+        {
+          "uri": "http://nginx.demo-targets.svc/",
+          "method": "GET",
+          "param": "",
+          "attack": "",
+          "evidence": "",
+          "otherinfo": ""
+        },
+        {
+          "uri": "http://nginx.demo-targets.svc/robots.txt",
+          "method": "GET",
+          "param": "",
+          "attack": "",
+          "evidence": "",
+          "otherinfo": ""
+        }
+      ]
+    },
+    "id": "dabac27c-eec3-4e65-9f5d-9184b81b3818",
+    "parsed_at": "2025-04-03T16:54:22.242Z",
+    "scan": {
+      "created_at": "2025-04-03T16:52:35Z",
+      "name": "zap-automation-framework-juice-shop",
+      "namespace": "demo-targets",
+      "scan_type": "zap-automation-framework"
+    }
+  },
+  {
+    "name": "X-Content-Type-Options Header Missing",
+    "description": "The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.",
+    "hint": null,
+    "category": "X-Content-Type-Options Header Missing",
+    "location": "http://nginx.demo-targets.svc",
+    "osi_layer": "APPLICATION",
+    "severity": "LOW",
+    "references": [
+      {
+        "type": "URL",
+        "value": "https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)"
+      },
+      {
+        "type": "URL",
+        "value": "https://owasp.org/www-community/Security_Headers"
+      },
+      {
+        "type": "CWE",
+        "value": "CWE-693"
+      },
+      {
+        "type": "URL",
+        "value": "https://cwe.mitre.org/data/definitions/693.html"
+      }
+    ],
+    "mitigation": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+    "attributes": {
+      "hostname": "nginx.demo-targets.svc",
+      "port": "80",
+      "zap_confidence": "2",
+      "zap_count": "2",
+      "zap_solution": "Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.",
+      "zap_otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.At \"High\" threshold this scan rule will not alert on client or server error responses.",
+      "zap_reference": "https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)https://owasp.org/www-community/Security_Headers",
+      "zap_cweid": "693",
+      "zap_wascid": "15",
+      "zap_riskcode": "1",
+      "zap_pluginid": "10021",
+      "zap_finding_urls": [
+        {
+          "uri": "http://nginx.demo-targets.svc",
+          "method": "GET",
+          "param": "x-content-type-options",
+          "attack": "",
+          "evidence": "",
+          "otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+        },
+        {
+          "uri": "http://nginx.demo-targets.svc/",
+          "method": "GET",
+          "param": "x-content-type-options",
+          "attack": "",
+          "evidence": "",
+          "otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+        }
+      ]
+    },
+    "id": "e161f9bc-260d-48ad-9d1a-4741f5fc4b5b",
+    "parsed_at": "2025-04-03T16:54:22.242Z",
+    "scan": {
+      "created_at": "2025-04-03T16:52:35Z",
+      "name": "zap-automation-framework-juice-shop",
+      "namespace": "demo-targets",
+      "scan_type": "zap-automation-framework"
+    }
+  }
+]

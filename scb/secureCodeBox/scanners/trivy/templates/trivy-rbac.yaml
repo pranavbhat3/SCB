@@ -1,0 +1,179 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+{{ if .Values.createAutoDiscoveryScanType }}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: trivy-autodiscovery
+  namespace: {{.Release.Namespace}}
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-lurker
+  namespace: {{.Release.Namespace}}
+subjects:
+  - kind: ServiceAccount
+    name: trivy-autodiscovery
+    namespace: {{.Release.Namespace}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: lurker
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-autodiscovery
+  namespace: {{.Release.Namespace}}
+rules:
+  - apiGroups: [""]
+    resources:
+      - secrets
+    verbs: ["create"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-autodiscovery
+  namespace: {{.Release.Namespace}}
+subjects:
+  - kind: ServiceAccount
+    name: trivy-autodiscovery
+    namespace: {{.Release.Namespace}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: trivy-autodiscovery
+{{ end }}
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: trivy-k8s
+  namespace: {{ .Release.Namespace}}
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-k8s-lurker
+  namespace: {{ .Release.Namespace}}
+subjects:
+  - kind: ServiceAccount
+    name: trivy-k8s
+    namespace: {{ .Release.Namespace}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: lurker
+---
+{{- if eq .Values.k8sScanScope "namespace" }}
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-k8s
+  namespace: {{ .Release.Namespace}}
+rules:
+  - apiGroups: [""]
+    resources:
+      - pods
+      - podtemplates
+      - replicationcontrollers
+      - serviceaccounts
+      - services
+      - configmaps
+      - resourcequotas
+      - limitranges
+    verbs: ["get", "list"]
+  - apiGroups: ["apps"]
+    resources:
+      - daemonsets
+      - statefulsets
+      - deployments
+    verbs: ["get", "list"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources:
+      - rolebindings
+      - roles
+    verbs: ["get", "list"]
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["get", "list"]
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - ingresses
+      - networkpolicies
+    verbs: ["get", "list"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-k8s
+  namespace: {{ .Release.Namespace}}
+subjects:
+  - kind: ServiceAccount
+    name: trivy-k8s
+    namespace: {{ .Release.Namespace}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: trivy-k8s
+{{- end }}
+{{- if eq .Values.k8sScanScope "cluster" }}
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-k8s
+rules:
+  - apiGroups: [""]
+    resources:
+      - namespaces
+      - pods
+      - podtemplates
+      - replicationcontrollers
+      - serviceaccounts
+      - services
+      - configmaps
+      - resourcequotas
+      - limitranges
+    verbs: ["get", "list"]
+  - apiGroups: ["apps"]
+    resources:
+      - daemonsets
+      - statefulsets
+      - deployments
+    verbs: ["get", "list"]
+  - apiGroups: ["rbac.authorization.k8s.io"]
+    resources:
+      - rolebindings
+      - roles
+    verbs: ["get", "list"]
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["get", "list"]
+  - apiGroups: ["networking.k8s.io"]
+    resources:
+      - networkpolicies
+      - ingresses
+    verbs: ["get", "list"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: trivy-k8s
+subjects:
+  - kind: ServiceAccount
+    name: trivy-k8s
+    namespace: {{ .Release.Namespace}}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+{{- end }}

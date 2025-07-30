@@ -1,0 +1,13 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: naabu-scan-cascading-scbcompatible-1753179161
+  namespace: securecodebox-system
+spec:
+  scanType: naabu-scbcompatible
+  parameters:
+    - "-host"
+    - "scanme.nmap.org"
+    - "-json"
+    - "-o"
+    - "/home/securecodebox/raw-results.json"

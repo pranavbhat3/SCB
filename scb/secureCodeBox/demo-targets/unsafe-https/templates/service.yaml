@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{include "unsafe-https.fullname" .}}
+  labels: 
+    {{- include "unsafe-https.labels" . | nindent 4}}
+  annotations: 
+    {{- include "unsafe-https.annotations" . | nindent 4}}
+spec:
+  type: {{.Values.service.type}}
+  ports:
+    - port: {{.Values.service.port}}
+      targetPort: https
+      protocol: TCP
+      name: https
+  selector: 
+    {{- include "unsafe-https.selectorLabels" . | nindent 4}}

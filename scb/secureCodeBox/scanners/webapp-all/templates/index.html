@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cascading Security Scanner</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 2em; 
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .error { 
+            color: #d32f2f; 
+            background-color: #ffebee;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 1em 0;
+        }
+        .success { 
+            color: #388e3c; 
+            background-color: #e8f5e8;
+            padding: 1em;
+            border-radius: 4px;
+            margin: 1em 0;
+        }
+        .status { 
+            margin-top: 1em; 
+            padding: 1em;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        .form-actions {
+            display: flex;
+            gap: 1em;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.75em;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #2196f3;
+        }
+        button {
+            background-color: #2196f3;
+            color: white;
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        button:hover:not(:disabled) {
+            background-color: #1976d2;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .btn-success {
+            background-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .output {
+            background-color: #f8f9fa;
+            padding: 1em;
+            border-radius: 4px;
+            margin-top: 1em;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .output.error {
+            background-color: #ffebee;
+            color: #d32f2f;
+        }
+        .output.success {
+            background-color: #e8f5e8;
+            color: #388e3c;
+        }
+        .results-section {
+            margin-top: 2em;
+            padding: 1em;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        .file-list {
+            margin-top: 1em;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em;
+            border-bottom: 1px solid #dee2e6;
+            background-color: white;
+        }
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        .file-info {
+            flex: 1;
+        }
+        .file-name {
+            font-weight: bold;
+            color: #333;
+        }
+        .file-path {
+            font-size: 0.8em;
+            color: #666;
+            font-family: monospace;
+        }
+        .file-size {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .file-actions {
+            display: flex;
+            gap: 0.5em;
+        }
+        .hidden {
+            display: none;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body 
+    data-has-results="{{ 'true' if results_dir else 'false' }}"
+    data-scan-in-progress="{{ 'true' if scan_in_progress else 'false' }}"
+    data-scan-name="{{ scan_name or '' }}"
+    data-target="{{ target or '' }}"
+    data-results-dir="{{ results_dir or '' }}">
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div style="display: flex; border-bottom: 2px solid #ddd; margin-bottom: 2em;">
+            <button style="padding: 1em 2em; background: white; border: none; cursor: pointer; border-bottom: 2px solid #2196f3; color: #2196f3; margin-right: 0.5em;" onclick="window.location.href='/'">
+                🔍 Embedded Scanner
+            </button>
+            <button style="padding: 1em 2em; background: #f8f9fa; border: none; cursor: pointer; border-bottom: 2px solid transparent; margin-right: 0.5em;" onclick="window.location.href='/mobile'">
+                📱 Mobile App Scanner
+            </button>
+        </div>
+        
+        <h1>🔍 Cascading Security Scanner</h1>
+        <p>Run a complete security scan workflow: Naabu → TLSX → ZAP → Nuclei</p>
+        
+    <form method="post" action="/scan">
+            <div class="form-group">
+                <label for="target">Target IP Address or Domain:</label>
+                <input type="text" name="target" id="target" value="{{ target or '' }}" 
+                       placeholder="e.g., 192.168.1.1 or example.com" required {% if scan_in_progress %}disabled{% endif %}>
+            </div>
+            <div class="form-actions">
+                <button type="submit" id="scan-btn" {% if scan_in_progress %}disabled{% endif %}>
+                    {% if scan_in_progress %}Scanning...{% else %}Start Cascading Scan{% endif %}
+                </button>
+                <button type="button" class="btn-secondary" onclick="clearScan()">
+                    🗑️ Clear Scan State
+                </button>
+            </div>
+    </form>
+
+
+
+        <!-- Individual scanner file browsers -->
+        <div id="scanner-file-browsers" style="margin-top:2em;">
+            <h3>📂 Scanner-Specific File Browsers</h3>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1em; margin-top:1em;">
+                <div class="scanner-browser" data-scanner="naabu">
+                    <h4>🔍 Naabu Files</h4>
+                    <button class="btn-secondary" onclick="listScannerFiles('naabu')">Browse Files</button>
+                    <div class="file-list-container" style="margin-top:0.5em;"></div>
+                </div>
+                
+                <div class="scanner-browser" data-scanner="tlsx">
+                    <h4>🔒 TLSX Files</h4>
+                    <button class="btn-secondary" onclick="listScannerFiles('tlsx')">Browse Files</button>
+                    <div class="file-list-container" style="margin-top:0.5em;"></div>
+                </div>
+                
+                <div class="scanner-browser" data-scanner="zap">
+                    <h4>🕷️ ZAP Files</h4>
+                    <button class="btn-secondary" onclick="listScannerFiles('zap')">Browse Files</button>
+                    <div class="file-list-container" style="margin-top:0.5em;"></div>
+                </div>
+                
+                <div class="scanner-browser" data-scanner="nuclei">
+                    <h4>🎯 Nuclei Files</h4>
+                    <button class="btn-secondary" onclick="listScannerFiles('nuclei')">Browse Files</button>
+                    <div class="file-list-container" style="margin-top:0.5em;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New folder-based browsing section -->
+        <div id="folder-browser" style="margin-top:2em; padding:1em; background:#fff3cd; border-radius:4px; border:1px solid #ffeaa7;">
+            <h3>📁 Scan Folder Browser</h3>
+            <p style="color:#666; font-size:0.9em;">Browse scan results organized by scan folders (recommended for complete scan results):</p>
+            
+            <div style="margin-top:1em;">
+                <button class="btn-secondary" onclick="listScanFolders()" style="margin-right:1em;">
+                    📂 Browse Scan Folders
+                </button>
+                <button class="btn-secondary" onclick="refreshFolderBrowser()">
+                    🔄 Refresh Folders
+                </button>
+            </div>
+            
+            <div id="folder-browser-results" style="margin-top:1em;"></div>
+        </div>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+        
+        {% if success %}
+            <div class="success">{{ success }}</div>
+        {% endif %}
+        
+        {% if scan_in_progress %}
+        <div class="status">
+                <span class="error">
+                    <strong>⚠️ Scan in Progress</strong><br>
+                    A scan is currently running. You cannot start a new scan until this one completes.<br>
+                    <button onclick="resetScanState()" style="margin-top: 0.5em;">🔄 Reset Scan State</button>
+                    <button onclick="clearScan()" style="margin-top: 0.5em; margin-left: 0.5em;">🗑️ Clear Scan State</button>
+                </span>
+            </div>
+            <script>
+            function resetScanState() {
+                if (confirm('Reset the scan state? This will allow you to start a new scan.')) {
+                    fetch('/reset')
+                        .then(response => response.json())
+                        .then(data => {
+                            alert('Scan state reset successfully!');
+                            window.location.reload();
+                        })
+                        .catch(error => {
+                            alert('Error resetting scan state: ' + error.message);
+                        });
+                }
+            }
+            </script>
+        {% endif %}
+
+        {% if script_stdout or script_stderr %}
+        <div style="margin-top:1em;">
+            <h3>Scan Output</h3>
+            {% if script_stdout %}
+                <div><b>Standard Output:</b></div>
+                <div id="script-output" class="output success">{{ script_stdout }}</div>
+            {% endif %}
+            {% if script_stderr %}
+                <div><b>Error Output:</b></div>
+                <div class="output error">{{ script_stderr }}</div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if scan_in_progress %}
+        <div style="margin-top:1em;">
+            <h3>🔄 Real-Time Scan Output</h3>
+            <div id="realtime-output" class="output success" style="max-height: 600px; overflow-y: auto; font-family: monospace; white-space: pre-wrap;">
+                Starting scan... Waiting for output...
+            </div>
+            <div style="margin-top: 1em;">
+                <button class="btn-secondary" onclick="clearOutput()">Clear Output</button>
+                <button class="btn-secondary" onclick="scrollToBottom()">Scroll to Bottom</button>
+            </div>
+        </div>
+        {% endif %}
+
+
+
+        <div style="margin-top: 2em; padding-top: 1em; border-top: 1px solid #ddd;">
+            <h3>About This Scanner</h3>
+            <p>This web interface runs a comprehensive security scan workflow:</p>
+            <ol>
+                <li><strong>Naabu</strong>: Port scanning (all ports 1-65535)</li>
+                <li><strong>TLSX</strong>: TLS/SSL certificate analysis on open ports</li>
+                <li><strong>ZAP</strong>: Web application security testing on HTTPS endpoints</li>
+                <li><strong>Nuclei</strong>: Vulnerability scanning using templates</li>
+            </ol>
+            <p><small>Results are saved in timestamped directories and can be downloaded as ZIP files.</small></p>
+        </div>
+    </div>
+
+        <script>
+        // Get data from HTML data attributes to avoid template syntax conflicts
+        const scanData = {
+            hasResultsDir: document.body.getAttribute('data-has-results') === 'true',
+            hasScanInProgress: document.body.getAttribute('data-scan-in-progress') === 'true',
+            scanName: document.body.getAttribute('data-scan-name') || '',
+            target: document.body.getAttribute('data-target') || '',
+            resultsDir: document.body.getAttribute('data-results-dir') || ''
+        };
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (scanData.hasScanInProgress) {
+                startRealTimeOutput();
+                pollScanStatus();
+            }
+        });
+
+        function downloadNaabu() {
+            const statusDiv = document.getElementById('download-status');
+            statusDiv.innerHTML = '<span style="color:#2196f3;">⏳ Downloading Naabu results...</span>';
+            window.location.href = '/download-naabu';
+            setTimeout(() => {
+                statusDiv.innerHTML = '<span style="color:#28a745;">✅ Naabu download started</span>';
+            }, 1000);
+        }
+
+        function downloadTlsx() {
+            const statusDiv = document.getElementById('download-status');
+            statusDiv.innerHTML = '<span style="color:#2196f3;">⏳ Downloading TLSX results...</span>';
+            window.location.href = '/download-tlsx';
+            setTimeout(() => {
+                statusDiv.innerHTML = '<span style="color:#28a745;">✅ TLSX download started</span>';
+            }, 1000);
+        }
+
+        function downloadZap() {
+            const statusDiv = document.getElementById('download-status');
+            statusDiv.innerHTML = '<span style="color:#2196f3;">⏳ Downloading ZAP results...</span>';
+            window.location.href = '/download-zap';
+            setTimeout(() => {
+                statusDiv.innerHTML = '<span style="color:#28a745;">✅ ZAP download started</span>';
+            }, 1000);
+        }
+
+        function downloadNuclei() {
+            const statusDiv = document.getElementById('download-status');
+            statusDiv.innerHTML = '<span style="color:#2196f3;">⏳ Downloading Nuclei results...</span>';
+            window.location.href = '/download-nuclei';
+            setTimeout(() => {
+                statusDiv.innerHTML = '<span style="color:#28a745;">✅ Nuclei download started</span>';
+            }, 1000);
+        }
+
+
+
+        function clearScan() {
+            if (confirm('Are you sure you want to clear the current scan state? This will reset the interface and clean up temporary files.')) {
+                fetch('/clear-scan')
+                    .then(response => response.json())
+                    .then(data => {
+                        alert('Scan state cleared successfully!');
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        alert('Error clearing scan state: ' + error.message);
+                    });
+            }
+        }
+
+        function resetScanState() {
+            fetch('/reset').then(() => { window.location.reload(); });
+        }
+
+        function startRealTimeOutput() {
+            const outputDiv = document.getElementById('realtime-output');
+            if (!outputDiv) return;
+
+            const eventSource = new EventSource('/stream-output');
+            
+            eventSource.onmessage = function(event) {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.output) {
+                        outputDiv.textContent += data.output + '\n';
+                        scrollToBottom();
+                    }
+                } catch (e) {
+                    console.error('Error parsing SSE data:', e);
+                }
+            };
+
+            eventSource.onerror = function(event) {
+                console.error('SSE error:', event);
+                eventSource.close();
+            };
+        }
+
+        function pollScanStatus() {
+            const statusInterval = setInterval(function() {
+                fetch('/scan-status')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'completed' || data.status === 'failed') {
+                            clearInterval(statusInterval);
+                            // Reload page to show results
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 2000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error polling scan status:', error);
+                    });
+            }, 5000); // Poll every 5 seconds
+        }
+
+        function clearOutput() {
+            const outputDiv = document.getElementById('realtime-output');
+            if (outputDiv) {
+                outputDiv.textContent = 'Output cleared...\n';
+            }
+        }
+
+        function scrollToBottom() {
+            const outputDiv = document.getElementById('realtime-output');
+            if (outputDiv) {
+                outputDiv.scrollTop = outputDiv.scrollHeight;
+            }
+        }
+
+        // File browser functions
+        function discoverAllFiles() {
+            const resultsDiv = document.getElementById('file-discovery-results');
+            resultsDiv.innerHTML = '<div style="color:#666;">🔍 Discovering files...</div>';
+            
+            fetch('/discover-files')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        resultsDiv.innerHTML = `<div style="color:red;">❌ Error: ${data.error}</div>`;
+                        return;
+                    }
+                    
+                    let html = '<div style="margin-top:1em;">';
+                    html += `<h4>📊 File Summary (${data.total_files} total files)</h4>`;
+                    
+                    for (const [scanner, info] of Object.entries(data.scanner_summary)) {
+                        if (info.total_files > 0) {
+                            html += `<div style="margin:1em 0; padding:1em; background:white; border-radius:4px; border:1px solid #ddd;">`;
+                            html += `<h5>${scanner.toUpperCase()} (${info.total_files} files)</h5>`;
+                            html += `<p><strong>File types:</strong> ${info.file_types.join(', ')}</p>`;
+                            
+                            if (info.latest_file) {
+                                html += `<p><strong>Latest:</strong> ${info.latest_file.key}</p>`;
+                                html += `<button class="btn-secondary" onclick="downloadLatest('${scanner}')" style="margin-right:0.5em;">Download Latest</button>`;
+                                html += `<button class="btn-secondary" onclick="listScannerFiles('${scanner}')">Browse All</button>`;
+                            }
+                            
+                            html += '</div>';
+                        }
+                    }
+                    
+                    html += '</div>';
+                    resultsDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML = `<div style="color:red;">❌ Error: ${error.message}</div>`;
+                });
+        }
+        
+        function downloadLatest(scanner) {
+            window.open(`/download-scanner/${scanner}`, '_blank');
+        }
+        
+        function listScannerFiles(scanner) {
+            const container = document.querySelector(`[data-scanner="${scanner}"] .file-list-container`);
+            container.innerHTML = '<div style="color:#666;">🔍 Loading files...</div>';
+            
+            fetch(`/list-scanner-files/${scanner}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        container.innerHTML = `<div style="color:red;">❌ Error: ${data.error}</div>`;
+                        return;
+                    }
+                    
+                    let html = `<div style="margin-top:0.5em;">`;
+                    html += `<p><strong>${data.total_files} files found:</strong></p>`;
+                    
+                    if (data.files.length === 0) {
+                        html += '<p style="color:#666;">No files found for this scanner.</p>';
+                    } else {
+                        html += '<div style="max-height:300px; overflow-y:auto;">';
+                        data.files.forEach((file, index) => {
+                            html += `<div style="margin:0.5em 0; padding:0.5em; background:white; border-radius:4px; border:1px solid #eee;">`;
+                            html += `<div><strong>${file.filename}</strong></div>`;
+                            html += `<div style="font-size:0.8em; color:#666;">`;
+                            html += `Type: ${file.file_type} | Size: ${file.size_human} | Modified: ${new Date(file.last_modified).toLocaleString()}`;
+                            html += `</div>`;
+                            html += `<button class="btn-secondary" onclick="downloadFileByIndex('${scanner}', ${index})" style="margin-top:0.5em;">Download</button>`;
+                            html += '</div>';
+                        });
+                        html += '</div>';
+                    }
+                    
+                    html += '</div>';
+                    container.innerHTML = html;
+                })
+                .catch(error => {
+                    container.innerHTML = `<div style="color:red;">❌ Error: ${error.message}</div>`;
+                });
+        }
+        
+        function downloadFileByIndex(scanner, index) {
+            window.open(`/download-scanner-file/${scanner}/${index}`, '_blank');
+        }
+        
+        function refreshFileBrowser() {
+            discoverAllFiles();
+            // Refresh all scanner browsers
+            ['naabu', 'tlsx', 'zap', 'nuclei'].forEach(scanner => {
+                const container = document.querySelector(`[data-scanner="${scanner}"] .file-list-container`);
+                if (container.innerHTML.includes('files found:')) {
+                    listScannerFiles(scanner);
+                }
+            });
+        }
+
+        // Folder browser functions
+        function listScanFolders() {
+            const resultsDiv = document.getElementById('folder-browser-results');
+            resultsDiv.innerHTML = '<div style="color:#666;">📂 Loading scan folders...</div>';
+            
+            fetch('/list-scan-folders')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        resultsDiv.innerHTML = `<div style="color:red;">❌ Error: ${data.error}</div>`;
+                        return;
+                    }
+                    
+                    let html = '<div style="margin-top:1em;">';
+                    html += `<h4>📊 Scan Folders (${data.total_folders} folders)</h4>`;
+                    
+                    if (data.folders.length === 0) {
+                        html += '<p style="color:#666;">No scan folders found.</p>';
+                    } else {
+                        data.folders.forEach(folder => {
+                            html += `<div style="margin:1em 0; padding:1em; background:white; border-radius:4px; border:1px solid #ddd;">`;
+                            html += `<h5>📁 ${folder.folder_name}</h5>`;
+                            html += `<p><strong>Files:</strong> ${folder.total_files} | <strong>Scanners:</strong> ${folder.scanners.join(', ')}</p>`;
+                            html += `<p><strong>Latest:</strong> ${new Date(folder.latest_modified).toLocaleString()}</p>`;
+                            
+                            html += `<div style="margin-top:0.5em;">`;
+                            html += `<button class="btn-secondary" onclick="downloadFolderZip('${folder.folder_name}')" style="margin-right:0.5em;">📦 Download All</button>`;
+                            html += `<button class="btn-secondary" onclick="listFolderContents('${folder.folder_name}')">📂 Browse Files</button>`;
+                            html += `</div>`;
+                            
+                            html += '</div>';
+                        });
+                    }
+                    
+                    html += '</div>';
+                    resultsDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML = `<div style="color:red;">❌ Error: ${error.message}</div>`;
+                });
+        }
+        
+        function listFolderContents(folderName) {
+            const resultsDiv = document.getElementById('folder-browser-results');
+            resultsDiv.innerHTML = '<div style="color:#666;">📂 Loading folder contents...</div>';
+            
+            fetch(`/list-folder-contents/${folderName}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        resultsDiv.innerHTML = `<div style="color:red;">❌ Error: ${data.error}</div>`;
+                        return;
+                    }
+                    
+                    let html = '<div style="margin-top:1em;">';
+                    html += `<h4>📂 ${data.folder_name} (${data.total_files} files)</h4>`;
+                    html += `<button class="btn-secondary" onclick="listScanFolders()" style="margin-bottom:1em;">← Back to Folders</button>`;
+                    
+                    if (data.files.length === 0) {
+                        html += '<p style="color:#666;">No files found in this folder.</p>';
+                    } else {
+                        html += '<div style="max-height:400px; overflow-y:auto;">';
+                        data.files.forEach((file, index) => {
+                            html += `<div style="margin:0.5em 0; padding:0.5em; background:white; border-radius:4px; border:1px solid #eee;">`;
+                            html += `<div><strong>${file.filename}</strong> <span style="color:#666;">(${file.scanner_type})</span></div>`;
+                            html += `<div style="font-size:0.8em; color:#666;">`;
+                            html += `Type: ${file.file_type} | Size: ${file.size_human} | Modified: ${new Date(file.last_modified).toLocaleString()}`;
+                            html += `</div>`;
+                            html += `<button class="btn-secondary" onclick="downloadFolderFile('${folderName}', ${index})" style="margin-top:0.5em;">Download</button>`;
+                            html += '</div>';
+                        });
+                        html += '</div>';
+                    }
+                    
+                    html += '</div>';
+                    resultsDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    resultsDiv.innerHTML = `<div style="color:red;">❌ Error: ${error.message}</div>`;
+                });
+        }
+        
+        function downloadFolderZip(folderName) {
+            window.open(`/download-folder/${folderName}`, '_blank');
+        }
+        
+        function downloadFolderFile(folderName, fileIndex) {
+            window.open(`/download-folder-file/${folderName}/${fileIndex}`, '_blank');
+        }
+        
+        function refreshFolderBrowser() {
+            listScanFolders();
+        }
+
+        </script>
+</body>
+</html> 

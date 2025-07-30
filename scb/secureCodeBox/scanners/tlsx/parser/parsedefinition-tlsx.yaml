@@ -1,0 +1,33 @@
+apiVersion: execution.securecodebox.io/v1
+kind: ParseDefinition
+metadata:
+  name: tlsx-parser
+  namespace: securecodebox-system
+spec:              # ✅ THIS MUST MATCH scantype extractResults.type
+  image: pranavbhat3/tlsx-parser:latest
+  ttlSecondsAfterFinished: 3600
+  resources:
+    limits:
+      cpu: "400m"
+      memory: "200Mi"
+    requests:
+      cpu: "200m"
+      memory: "100Mi"
+  env:
+    - name: MINIO_ENDPOINT
+      value: "http://securecodebox-operator-minio.securecodebox-system.svc.cluster.local:9000"
+    - name: MINIO_ACCESS_KEY
+      value: "admin"
+    - name: MINIO_SECRET_KEY
+      value: "password"
+    - name: MINIO_BUCKET
+      value: "securecodebox"
+    - name: MINIO_SECURE
+      value: "false"
+  volumeMounts:
+    - name: tlsx-parser-pvc
+      mountPath: /home/securecodebox
+  volumes:
+    - name: tlsx-parser-pvc
+      persistentVolumeClaim:
+        claimName: tlsx-parser-pvc

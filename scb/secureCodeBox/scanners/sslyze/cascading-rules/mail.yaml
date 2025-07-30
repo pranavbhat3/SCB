@@ -1,0 +1,87 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: "cascading.securecodebox.io/v1"
+kind: CascadingRule
+metadata:
+  name: "smtps-tls-scan"
+  labels:
+    securecodebox.io/invasive: non-invasive
+    securecodebox.io/intensive: light
+spec:
+  matches:
+    anyOf:
+      - category: "Open Port"
+        attributes:
+          port: 465
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "smtps"
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "smtp"
+          tunnel: "ssl"
+          state: open
+  scanSpec:
+    scanType: "sslyze"
+    parameters:
+      ["--mozilla_config=intermediate", "{{$.hostOrIP}}:{{attributes.port}}"]
+---
+apiVersion: "cascading.securecodebox.io/v1"
+kind: CascadingRule
+metadata:
+  name: "pop3s-tls-scan"
+  labels:
+    securecodebox.io/invasive: non-invasive
+    securecodebox.io/intensive: light
+spec:
+  matches:
+    anyOf:
+      - category: "Open Port"
+        attributes:
+          port: 995
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "pop3s"
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "pop3"
+          tunnel: "ssl"
+          state: open
+  scanSpec:
+    scanType: "sslyze"
+    parameters:
+      ["--mozilla_config=intermediate", "{{$.hostOrIP}}:{{attributes.port}}"]
+---
+apiVersion: "cascading.securecodebox.io/v1"
+kind: CascadingRule
+metadata:
+  name: "imaps-tls-scan"
+  labels:
+    securecodebox.io/invasive: non-invasive
+    securecodebox.io/intensive: light
+spec:
+  matches:
+    anyOf:
+      - category: "Open Port"
+        attributes:
+          port: 993
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "imaps"
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "imap"
+          tunnel: "ssl"
+          state: open
+  scanSpec:
+    scanType: "sslyze"
+    parameters:
+      ["--mozilla_config=intermediate", "{{$.hostOrIP}}:{{attributes.port}}"]

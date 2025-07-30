@@ -1,0 +1,63 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+[
+  {
+    "name": "Retrieved access-control-allow-origin header: *.",
+    "description": null,
+    "category": "Nikto Finding",
+    "location": "http://bodgeit",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes":
+      {
+        "ip_address": "10.96.244.199",
+        "hostname": "bodgeit",
+        "banner": "",
+        "method": "GET",
+        "port": 3000,
+        "niktoId": 999986,
+      },
+    "id": "ada07ba9-6bb3-4d3f-ad43-a70271364639",
+    "parsed_at": "2022-01-11T10:18:28.344Z",
+  },
+  {
+    "name": "Entry '/ftp/' in robots.txt returned a non-forbidden or redirect HTTP code (200).",
+    "description": null,
+    "category": "Nikto Finding",
+    "location": "http://bodgeit",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes":
+      {
+        "ip_address": "10.96.244.199",
+        "hostname": "bodgeit",
+        "banner": "",
+        "method": "GET",
+        "port": 3000,
+        "niktoId": 999997,
+      },
+    "id": "0738d403-5440-4ede-ae36-47ecbf34ad9b",
+    "parsed_at": "2022-01-11T10:18:28.345Z",
+  },
+  {
+    "name": '"robots.txt" contains 1 entry which should be manually viewed.',
+    "description": null,
+    "category": "robots.txt",
+    "location": "http://bodgeit",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes":
+      {
+        "ip_address": "10.96.244.199",
+        "hostname": "bodgeit",
+        "banner": "",
+        "method": "GET",
+        "port": 3000,
+        "niktoId": 999996,
+      },
+    "id": "1d4c72c8-337c-47ea-b59f-5231928e1b9c",
+    "parsed_at": "2022-01-11T10:18:28.345Z",
+  },
+]

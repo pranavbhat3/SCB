@@ -1,0 +1,83 @@
+// SPDX-FileCopyrightText: the secureCodeBox authors
+//
+// SPDX-License-Identifier: Apache-2.0
+
+plugins {
+  id "java"
+  id "io.freefair.lombok" version "8.14"
+  // https://github.com/ben-manes/gradle-versions-plugin
+  // Run: ./gradlew dependencyUpdates -Drevision=release
+  id "com.github.ben-manes.versions" version "0.52.0"
+  id "org.sonarqube" version "6.2.0.5505"
+}
+
+group = "io.securecodebox"
+version = "1.0.0-SNAPSHOT"
+
+repositories {
+  mavenCentral()
+  maven {
+    url = "https://oss.sonatype.org/content/repositories/snapshots/"
+  }
+}
+
+dependencies {
+  implementation group: "io.securecodebox", name: "defectdojo-client", version: "2.0.1"
+  implementation group: "io.kubernetes", name: "client-java", version: "20.0.1"
+  implementation group: "org.springframework", name: "spring-web", version: "6.2.8"
+  implementation group: "com.fasterxml.jackson.core", name: "jackson-core", version: "2.19.1"
+  implementation group: "com.fasterxml.jackson.core", name: "jackson-annotations", version: "2.19.1"
+  implementation group: "com.fasterxml.jackson.core", name: "jackson-databind", version: "2.19.1"
+  implementation group: "com.fasterxml.jackson.datatype", name: "jackson-datatype-jsr310", version: "2.19.1"
+  implementation group: "org.slf4j", name: "slf4j-api", version: "2.0.17"
+  implementation group: "org.slf4j", name: "slf4j-log4j12", version: "2.0.17"
+  // If I try to notate this like the others (with separate strings) I got errors. No idea why sh... Gradle
+  // want it like this. It is the official documented example:
+  // https://github.com/junit-team/junit5-samples/blob/r5.10.0/junit5-jupiter-starter-gradle/build.gradle
+  testImplementation(platform("org.junit:junit-bom:5.13.3"))
+  testImplementation("org.junit.jupiter:junit-jupiter")
+  testImplementation group: "org.mockito", name: "mockito-core", version: "5.18.0"
+  testImplementation group: "org.mockito", name: "mockito-junit-jupiter", version: "5.18.0"
+  testImplementation group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
+  testImplementation group: 'uk.org.webcompere', name: 'system-stubs-jupiter', version: '2.1.8'
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+java {
+  sourceCompatibility = JavaVersion.VERSION_17
+}
+
+test {
+  useJUnitPlatform()
+
+  testLogging {
+    events "failed"
+    exceptionFormat = "full"
+  }
+}
+
+def mainClassName = "io.securecodebox.persistence.DefectDojoPersistenceProvider"
+
+jar {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+  manifest {
+    attributes "Main-Class": "$mainClassName"
+  }
+
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+
+  // Exclude signatures from dependency jars, as these would not match the fat jars content.
+  exclude "META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA"
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "isecureCodeBox_defectdojo-persistence-provider"
+    property "sonar.organization", "iosecurecodebox"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}

@@ -1,0 +1,15 @@
+apiVersion: parser.securecodebox.io/v1
+kind: Parser
+metadata:
+  name: tlsx-parser
+  namespace: securecodebox-system
+spec:
+  image: tlsx-parser:latest
+  type: static
+  parser:
+    name: tlsx-parser
+  scopeLimiterAliases:
+    - "host"
+  volumeMounts:
+    - mountPath: /home/securecodebox/parser
+      name: result-volume

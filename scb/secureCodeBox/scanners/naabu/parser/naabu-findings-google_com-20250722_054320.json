@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Open port 80 on 172.217.24.14",
+    "description": "Port 80 is open on host 172.217.24.14",
+    "category": "Open Port",
+    "location": "172.217.24.14:80",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes": {
+      "host": "google.com",
+      "ip": "172.217.24.14",
+      "timestamp": "2025-07-22T05:42:32.447293651Z",
+      "port": 80,
+      "protocol": "tcp",
+      "tls": false
+    }
+  },
+  {
+    "name": "Open port 443 on 172.217.24.14",
+    "description": "Port 443 is open on host 172.217.24.14",
+    "category": "Open Port",
+    "location": "172.217.24.14:443",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes": {
+      "host": "google.com",
+      "ip": "172.217.24.14",
+      "timestamp": "2025-07-22T05:42:32.447293651Z",
+      "port": 443,
+      "protocol": "tcp",
+      "tls": false
+    }
+  }

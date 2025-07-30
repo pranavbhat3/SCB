@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+**/node_modules
+**/coverage
+hooks/cascading-scans/hook.js
+hooks/cascading-scans/scan-helpers.js
+hooks/cascading-scans/kubernetes-label-selector.js
+scanners/zap-advanced/scanner/scripts/*
+**/build/reports/*

@@ -1,0 +1,9 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: ${SCAN_NAME}
+  namespace: securecodebox-system
+spec:
+  scanType: "tlsx"
+  parameters:
+    - scanme.sh

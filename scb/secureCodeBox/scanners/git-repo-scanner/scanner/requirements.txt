@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+PyGithub == 1.54.1
+python-gitlab == 2.6.0
+pytimeparse == 1.1.8
+pytz == 2021.1

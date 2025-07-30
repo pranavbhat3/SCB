@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: "cascading.securecodebox.io/v1"
+kind: CascadingRule
+metadata:
+  name: "ftps-tls-scan"
+  labels:
+    securecodebox.io/invasive: non-invasive
+    securecodebox.io/intensive: light
+spec:
+  matches:
+    anyOf:
+      - category: "Open Port"
+        attributes:
+          port: 990
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "ftps"
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "ftp"
+          tunnel: "ssl"
+          state: open
+  scanSpec:
+    scanType: "sslyze"
+    parameters:
+      ["--mozilla_config=modern", "{{$.hostOrIP}}:{{attributes.port}}"]

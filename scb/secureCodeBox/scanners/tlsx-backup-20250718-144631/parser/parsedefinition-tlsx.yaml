@@ -1,0 +1,15 @@
+apiVersion: execution.securecodebox.io/v1
+kind: ParseDefinition
+metadata:
+  name: tlsx-parser
+  namespace: securecodebox-system
+spec:              # ✅ THIS MUST MATCH scantype extractResults.type
+  image: pranavbhat3/tlsx-parser:latest
+  ttlSecondsAfterFinished: 300
+  resources:
+    limits:
+      cpu: "400m"
+      memory: "200Mi"
+    requests:
+      cpu: "200m"
+      memory: "100Mi"

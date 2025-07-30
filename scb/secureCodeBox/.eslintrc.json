@@ -1,0 +1,17 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "jest": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "extends": ["eslint:recommended", "plugin:security/recommended"],
+  "plugins": ["prettier", "security"],
+  "rules": {
+    "security/detect-object-injection": "off",
+    "no-console": "off"
+  }
+}

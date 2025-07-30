@@ -1,0 +1,9 @@
+{
+  "name": "naabu-parser",
+  "version": "1.0.0",
+  "description": "SecureCodeBox parser for naabu output",
+  "main": "parser.js",
+  "dependencies": {
+    "minio": "^7.0.18"
+  }
+} 

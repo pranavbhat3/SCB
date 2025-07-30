@@ -1,0 +1,9 @@
+# scan.yaml template for dynamic scan creation
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: trial
+spec:
+  scanType: mobsf
+  parameters:
+    - "UnCrackable-Level1.apk"

@@ -1,0 +1,4792 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parses OWASP Juice Shop result file into findings 1`] = `
+[
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 999986,
+      "port": 3000,
+      "references": null,
+    },
+    "category": "Nikto Finding",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/",
+    "name": "Retrieved access-control-allow-origin header: *.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 999978,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options",
+        },
+      ],
+    },
+    "category": "Nikto Finding",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/",
+    "name": "/:X-Frame-Options header is deprecated and has been replaced with the Content-Security-Policy HTTP header with the frame-ancestors directive instead.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 999100,
+      "port": 3000,
+      "references": null,
+    },
+    "category": "Uncommon Header",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/",
+    "name": "Uncommon header 'x-recruiting' found, with contents: /#/jobs.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 999997,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://portswigger.net/kb/issues/00600600_robots-txt-file",
+        },
+      ],
+    },
+    "category": "Nikto Finding",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/ftp/",
+    "name": "/robots.txt: Entry '/ftp/' is returned a non-forbidden or redirect HTTP code (200).",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 999996,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt",
+        },
+      ],
+    },
+    "category": "robots.txt",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/robots.txt",
+    "name": "contains 1 entry which should be manually viewed.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168178.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/database.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/178.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192_168_178_49.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/site.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.tar",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/19216817849.tgz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/168.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.cer",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192.168.178.egg",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/10.96.244.199.jks",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/dump.alz",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/192168.tar.bz2",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/backup.pem",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/archive.war",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "HEAD",
+      "niktoId": 740001,
+      "port": 3000,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://cwe.mitre.org/data/definitions/530.html",
+        },
+        {
+          "type": "CWE",
+          "value": "CWE-530",
+        },
+      ],
+    },
+    "category": "Potential Backup File",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/49.tar.lzma",
+    "name": "Potentially interesting backup/cert file found. .",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 1675,
+      "port": 3000,
+      "references": null,
+    },
+    "category": "Potential Vulnerability",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/ftp/",
+    "name": "This might be interesting.",
+    "osi_layer": "NETWORK",
+    "severity": "HIGH",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 1811,
+      "port": 3000,
+      "references": null,
+    },
+    "category": "Potential Vulnerability",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/public/",
+    "name": "This might be interesting.",
+    "osi_layer": "NETWORK",
+    "severity": "HIGH",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "juice-shop.demo-targets.svc",
+      "ip_addresses": [
+        "10.96.244.199",
+      ],
+      "method": "GET",
+      "niktoId": 2739,
+      "port": 3000,
+      "references": null,
+    },
+    "category": "Potential Vulnerability",
+    "description": null,
+    "location": "http://juice-shop.demo-targets.svc/.htpasswd",
+    "name": "Contains authorization information.",
+    "osi_layer": "NETWORK",
+    "severity": "HIGH",
+  },
+]
+`;
+
+exports[`parses www.securecodebox.io result file into findings 1`] = `
+[
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "www.securecodebox.io",
+      "ip_addresses": [
+        "3.70.101.28",
+      ],
+      "method": "GET",
+      "niktoId": 287,
+      "port": 443,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://www.netlify.com/",
+        },
+      ],
+    },
+    "category": "Potential Vulnerability",
+    "description": null,
+    "location": "https://www.securecodebox.io/",
+    "name": "Netlify was identified by the x-nf-request-id header.",
+    "osi_layer": "NETWORK",
+    "severity": "HIGH",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "www.securecodebox.io",
+      "ip_addresses": [
+        "3.70.101.28",
+      ],
+      "method": "GET",
+      "niktoId": 999100,
+      "port": 443,
+      "references": null,
+    },
+    "category": "Uncommon Header",
+    "description": null,
+    "location": "https://www.securecodebox.io/",
+    "name": "Uncommon header 'cache-status' found, with contents: \\"Netlify Edge\\"; hit.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "www.securecodebox.io",
+      "ip_addresses": [
+        "3.70.101.28",
+      ],
+      "method": "GET",
+      "niktoId": 999103,
+      "port": 443,
+      "references": [
+        {
+          "type": "URL",
+          "value": "https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/",
+        },
+      ],
+    },
+    "category": "X-Content-Type-Options Header",
+    "description": null,
+    "location": "https://www.securecodebox.io/",
+    "name": "The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "www.securecodebox.io",
+      "ip_addresses": [
+        "3.70.101.28",
+      ],
+      "method": "GET",
+      "niktoId": 999984,
+      "port": 443,
+      "references": [
+        {
+          "type": "URL",
+          "value": "CVE-2003-1418",
+        },
+      ],
+    },
+    "category": "Nikto Finding",
+    "description": null,
+    "location": "https://www.securecodebox.io/",
+    "name": "Server may leak inodes via ETags, header found with file /, inode: 47d154f7c9e7e369b48dafb5778d36d4, size: ssl, mtime: df.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "www.securecodebox.io",
+      "ip_addresses": [
+        "3.70.101.28",
+      ],
+      "method": "GET",
+      "niktoId": 999966,
+      "port": 443,
+      "references": [
+        {
+          "type": "URL",
+          "value": "http://breachattack.com/",
+        },
+      ],
+    },
+    "category": "Nikto Finding",
+    "description": null,
+    "location": "https://www.securecodebox.io/",
+    "name": "The Content-Encoding header is set to \\"deflate\\" which may mean that the server is vulnerable to the BREACH attack.",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+  },
+  {
+    "attributes": {
+      "banner": "",
+      "hostname": "www.securecodebox.io",
+      "ip_addresses": [
+        "3.70.101.28",
+      ],
+      "method": "GET",
+      "niktoId": 1218,
+      "port": 443,
+      "references": null,
+    },
+    "category": "Potential Vulnerability",
+    "description": null,
+    "location": "https://www.securecodebox.io/sitemap.xml",
+    "name": "This gives a nice listing of the site content.",
+    "osi_layer": "NETWORK",
+    "severity": "HIGH",
+  },
+]
+`;

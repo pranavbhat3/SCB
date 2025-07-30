@@ -1,0 +1,88 @@
+{{- /*
+SPDX-FileCopyrightText: the secureCodeBox authors
+
+SPDX-License-Identifier: Apache-2.0
+*/ -}}
+
+{{- define "extra.docsSection" -}}
+---
+title: "Gitleaks"
+category: "scanner"
+type: "Repository"
+state: "released"
+appVersion: "{{ template "chart.appVersion" . }}"
+usecase: "Find potential secrets in repositories"
+---
+
+![gitleaks logo](https://raw.githubusercontent.com/zricethezav/gifs/master/gitleakslogo.png)
+
+{{- end }}
+
+{{- define "extra.dockerDeploymentSection" -}}
+## Supported Tags
+- `latest`  (represents the latest stable release build)
+- tagged releases, e.g. `{{ template "chart.appVersion" . }}`
+{{- end }}
+
+{{- define "extra.chartAboutSection" -}}
+## What is Gitleaks?
+Gitleaks is a free and open source tool for finding secrets in git repositories.
+These secrets could be passwords, API keys, tokens, private keys or suspicious file names or
+file extensions like *id_rsa*, *.pem*, *htpasswd*. Furthermore, gitleaks can scan your whole repository's history
+with all commits up to the initial one.
+
+To learn more about gitleaks visit [https://github.com/zricethezav/gitleaks](https://github.com/zricethezav/gitleaks)
+{{- end }}
+
+{{- define "extra.scannerConfigurationSection" -}}
+## Scanner Configuration
+For a complete overview of the configuration options, see the
+[Gitleaks documentation](https://github.com/zricethezav/gitleaks#usage).
+
+Starting with version 8.0, gitleaks no longer supports cloning the repository directly.
+Instead, you will have to use an init container to do so.
+[We provide example scan definitions below](https://www.securecodebox.io/docs/scanners/gitleaks/#examples) that you can build on.
+
+### Scanning Specific Timeframes
+When running gitleaks as a [scheduled scan](https://www.securecodebox.io/docs/how-tos/automatically-repeating-scans), you may not want to go through the entire repository history every time.
+Gitleaks allows you to limit the commits it will scan using the `--log-opts` parameter, which accepts all parameters supported by `git log -p`.
+For example, if you want to scan only commits made in the last 7 days, on all branches of the repository, use the following parameters:
+```yaml
+parameters:
+  # Run gitleaks in "detect" mode
+  - "detect"
+  # Point it at the location of the repository
+  - "--source"
+  - "/repo/"
+  # Only consider commits within the last 7 days, on all branches
+  - "--log-opts=--since=7days --all --full-history"
+```
+Note that the parameters to `--log-opts` are not quoted separately due to the way the scanner is called inside secureCodeBox - adding extra quotes will break the scan!
+It is important to remember to pass `--all --full-history` when using `--log-opts`, as otherwise only the default branch will be scanned (when not using `--log-opts`, gitleaks adds these parameters implicitly).
+
+### Human-Friendly Commit URLs
+Before gitleaks 8.0, the findings used to contain a direct link to the commit that contained the secret.
+The base URL was pulled from the parameter given to gitleaks.
+Since this is no longer possible, we cannot automatically infer which repository the commits belong to.
+However, you can provide this information manually using a scan annotation called `metadata.scan.securecodebox.io/git-repo-url`.
+See the examples below on how to use it.
+
+### Cascading Scans
+Gitleaks works well in conjunction with [git-repo-scanner](https://www.securecodebox.io/docs/scanners/git-repo-scanner) to enumerate Git repositories and scan them using cascading rules.
+We do not ship default cascading rules for this purpose.
+However, you can find instructions on running such cascading scans in [this article](https://www.securecodebox.io/blog/2021/10/27/sast-scanning) - simply adapt it to use gitleaks instead of semgrep and you are good to go.
+
+### Providing Your Own Ruleset
+SecureCodeBox used to ship a number of default rulesets.
+We have stopped doing this, as the official ruleset of gitleaks is much more up-to-date and well-maintained.
+However, if you still want to write and use your own rulesets, we [provide an example below](https://www.securecodebox.io/docs/scanners/gitleaks#provide-own-rules).
+The parser will set all found issues to `medium` severity by default.
+To override the severity in your own rulesets, include the result tag "HIGH" or "LOW" in your gitleaks rule.
+{{- end }}
+
+{{- define "extra.chartConfigurationSection" -}}
+**Do not** override the option `--report-format` or `--report-path`. It is already configured for automatic findings parsing.
+{{- end }}
+
+{{- define "extra.scannerLinksSection" -}}
+{{- end }}

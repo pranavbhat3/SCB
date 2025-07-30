@@ -1,0 +1,15 @@
+apiVersion: execution.securecodebox.io/v1
+kind: ParseDefinition
+metadata:
+  name: mobsf
+  labels:
+    app.kubernetes.io/name: mobsf
+    app.kubernetes.io/component: parser
+spec:
+  image: pranavbhat3/mobsfscanner:latest
+  imagePullPolicy: Always
+  ttlSecondsAfterFinished: {{ .Values.parser.ttlSecondsAfterFinished | default 86400 }}
+  env:
+    []
+  resources:
+    {{- toYaml .Values.parser.resources | nindent 4 }}

@@ -1,0 +1,70 @@
+{
+  "name": "securecodebox",
+  "version": "2.0.0",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/secureCodeBox/documentation.git"
+  },
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "prestart": "npm run build:docs && npm run build:integrations",
+    "start": "docusaurus start",
+    "prebuild": "npm run build:docs && npm run build:integrations",
+    "build": "docusaurus build",
+    "build:docs": "node ./src/docs.build.js",
+    "build:integrations": "node ./src/integrations.build.js",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve"
+  },
+  "dependencies": {
+    "@cmfcmf/docusaurus-search-local": "^1.2.0",
+    "@docusaurus/core": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.8.1",
+    "@docusaurus/theme-live-codeblock": "^3.8.1",
+    "@mdx-js/react": "^3.1.0",
+    "clsx": "^2.1.1",
+    "colors": "^1.4.0",
+    "docusaurus-plugin-sass": "^0.2.6",
+    "gray-matter": "^4.0.3",
+    "mustache": "^4.2.0",
+    "node-fetch": "^3.1.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rimraf": "^6.0.1",
+    "sass": "1.89"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.6.0",
+    "@docusaurus/tsconfig": "^3.8.1",
+    "@docusaurus/types": "^3.6.0",
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-router-dom": "^5.1.8",
+    "sass-loader": "^16.0.5",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0"
+  },
+  "overrides": {
+    "@cmfcmf/docusaurus-search-local": {
+      "@docusaurus/core": "^3.0.0"
+    }
+  }
+}

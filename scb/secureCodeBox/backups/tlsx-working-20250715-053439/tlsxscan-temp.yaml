@@ -1,0 +1,15 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: tlsx-scan-scanme-20250714-042944
+  namespace: securecodebox-system
+spec:
+  scanType: tlsx
+  parameters:
+    - scanme.sh
+  volumeMounts:
+    - mountPath: /home
+      name: results
+  volumes:
+    - name: results
+      emptyDir: {}

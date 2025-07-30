@@ -1,0 +1,9 @@
+apiVersion: execution.securecodebox.io/v1
+kind: Scan
+metadata:
+  name: tlsx2-scan-new
+  namespace: securecodebox-system
+spec:
+  scanType: tlsx2
+  parameters:
+    - scanme.sh

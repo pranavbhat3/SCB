@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: "execution.securecodebox.io/v1"
+kind: ScanCompletionHook
+metadata:
+  name: {{ include "cascading-scans.fullname" . }}
+  labels:
+    {{- include "cascading-scans.labels" . | nindent 4 }}
+    securecodebox.io/internal: "true"
+    {{- with .Values.hook.labels }}
+    {{ toYaml . }}
+    {{- end }}
+spec:
+  priority: {{ .Values.hook.priority }}
+  type: ReadOnly
+  image: "{{ .Values.hook.image.repository }}:{{ .Values.hook.image.tag | default .Chart.Version }}"
+  ttlSecondsAfterFinished: {{ .Values.hook.ttlSecondsAfterFinished }}
+  env: 
+    {{- toYaml .Values.hook.env | nindent 4 }}
+  serviceAccountName: cascading-scans
+  affinity:
+    {{- toYaml .Values.hook.affinity | nindent 4 }}
+  tolerations:
+    {{- toYaml .Values.hook.tolerations | nindent 4 }}
+  {{- with .Values.imagePullSecrets }}
+  imagePullSecrets:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.hook.resources }}
+  resources:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  volumes:
+    {{- toYaml .Values.hook.extraVolumes | nindent 4 }}
+  volumeMounts:
+    {{- toYaml .Values.hook.extraVolumeMounts | nindent 4 }}

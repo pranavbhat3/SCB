@@ -1,0 +1,1181 @@
+[
+  {
+    "host": "juice-shop.demo-targets.svc",
+    "ip": "10.96.244.199",
+    "port": "3000",
+    "banner": "",
+    "vulnerabilities": [
+      {
+        "id": "999986",
+        "method": "GET",
+        "url": "/",
+        "msg": "Retrieved access-control-allow-origin header: *."
+      },
+      {
+        "id": "999978",
+        "references": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options",
+        "method": "GET",
+        "url": "/",
+        "msg": "/:X-Frame-Options header is deprecated and has been replaced with the Content-Security-Policy HTTP header with the frame-ancestors directive instead."
+      },
+      {
+        "id": "999100",
+        "method": "GET",
+        "url": "/",
+        "msg": "Uncommon header 'x-recruiting' found, with contents: /#/jobs."
+      },
+      {
+        "id": "999997",
+        "references": "https://portswigger.net/kb/issues/00600600_robots-txt-file",
+        "method": "GET",
+        "url": "/ftp/",
+        "msg": "/robots.txt: Entry '/ftp/' is returned a non-forbidden or redirect HTTP code (200)."
+      },
+      {
+        "id": "999996",
+        "references": "https://developer.mozilla.org/en-US/docs/Glossary/Robots.txt",
+        "method": "GET",
+        "url": "/robots.txt",
+        "msg": "contains 1 entry which should be manually viewed."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168178.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/database.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/178.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192_168_178_49.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/site.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.tar",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/19216817849.tgz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/168.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.cer",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192.168.178.egg",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/10.96.244.199.jks",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/dump.alz",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/192168.tar.bz2",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/backup.pem",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/archive.war",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "740001",
+        "references": "https://cwe.mitre.org/data/definitions/530.html",
+        "method": "HEAD",
+        "url": "/49.tar.lzma",
+        "msg": "Potentially interesting backup/cert file found. ."
+      },
+      {
+        "id": "001675",
+        "method": "GET",
+        "url": "/ftp/",
+        "msg": "This might be interesting."
+      },
+      {
+        "id": "001811",
+        "method": "GET",
+        "url": "/public/",
+        "msg": "This might be interesting."
+      },
+      {
+        "id": "002739",
+        "method": "GET",
+        "url": "/.htpasswd",
+        "msg": "Contains authorization information."
+      }
+    ]
+  }
+]

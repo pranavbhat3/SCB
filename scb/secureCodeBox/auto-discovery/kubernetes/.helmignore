@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+bin/
+config/
+controller/
+hack/
+demo/
+cloudbuild.yml
+Dockerfile
+go.mod
+go.sum
+main.go
+Makefile
+PROJECT
+auto-discovery-config.yaml
+./tests/
+docs/
+auto-discovery-kubernetes.tar
+pull-secret-extractor/

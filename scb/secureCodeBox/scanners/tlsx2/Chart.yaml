@@ -1,0 +1,5 @@
+apiVersion: v2
+name: tlsx2
+description: TLSX2 Helm Chart for SecureCodeBox Integration
+version: 0.1.0
+appVersion: "1.1.9"

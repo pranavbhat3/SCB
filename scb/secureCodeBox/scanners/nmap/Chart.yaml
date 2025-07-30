@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: the secureCodeBox authors
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+name: nmap
+description: A Helm chart for the NMAP security Scanner that integrates with the secureCodeBox.
+
+type: application
+# version - gets automatically set to the secureCodeBox release version when the helm charts gets published
+version: v3.1.0-alpha1
+appVersion: "7.95-r0"
+kubeVersion: ">=v1.11.0-0"
+annotations:
+  # supported cpu architectures for which docker images for the scanner should be build
+  supported-platforms: linux/amd64,linux/arm64
+keywords:
+  - security
+  - nmap
+  - scanner
+  - secureCodeBox
+home: https://www.securecodebox.io/docs/scanners/Nmap
+icon: https://www.securecodebox.io/img/integrationIcons/Nmap.svg
+sources:
+  - https://github.com/secureCodeBox/secureCodeBox
+maintainers:
+  - name: iteratec GmbH
+    email: secureCodeBox@iteratec.com

@@ -1,0 +1,27 @@
+apiVersion: v2
+name: tlsx
+description: A Helm chart for the TLSX scanner by ProjectDiscovery that integrates with the secureCodeBox.
+
+type: application
+version: 0.1.0
+appVersion: v1.1.9
+kubeVersion: ">=v1.11.0-0"
+
+keywords:
+  - security
+  - tls
+  - ssl
+  - certificate
+  - scanner
+  - projectdiscovery
+  - secureCodeBox
+
+home: https://github.com/projectdiscovery/tlsx
+icon: https://www.securecodebox.io/img/integrationIcons/WPScan.svg
+sources:
+  - https://github.com/projectdiscovery/tlsx
+  - https://github.com/secureCodeBox/secureCodeBox
+
+maintainers:
+  - name: iteratec GmbH
+    email: secureCodeBox@iteratec.com

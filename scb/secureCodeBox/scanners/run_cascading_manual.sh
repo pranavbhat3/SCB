@@ -574,10 +574,10 @@ if [ -z "$SCAN_UID" ]; then
 fi
 
 print_status INFO "Step 5: Checking MinIO for results..."
-mc alias set myminio http://localhost:9000 admin password >/dev/null 2>&1 || true
-MINIO_RESULTS_PATH="myminio/securecodebox/scan-$SCAN_UID/nuclei-results.jsonl"
+mc alias set securecodebox http://localhost:9000 admin password >/dev/null 2>&1 || true
+MINIO_RESULTS_PATH="securecodebox/securecodebox/scan-$SCAN_UID/nuclei-results.jsonl"
 
-if mc ls myminio/securecodebox/scan-$SCAN_UID/ 2>/dev/null | grep -q nuclei-results.jsonl; then
+if mc ls securecodebox/securecodebox/scan-$SCAN_UID/ 2>/dev/null | grep -q nuclei-results.jsonl; then
     print_status SUCCESS "Found nuclei results in MinIO!"
     finding_count=$(mc cat "$MINIO_RESULTS_PATH" | wc -l 2>/dev/null || echo "0")
     sample_findings=$(mc cat "$MINIO_RESULTS_PATH" | head -3 | jq -r '.info.name + " (" + .info.severity + ")"' 2>/dev/null || true)
@@ -610,15 +610,15 @@ echo "### Sample Findings:" >> "$SUMMARY_MD"
 echo "" >> "$SUMMARY_MD"
 echo "$sample_findings" >> "$SUMMARY_MD"
 
-MINIO_SUMMARY_PATH="myminio/securecodebox/nuclei-summary-$SCAN_NAME_NUCLEI.md"
+MINIO_SUMMARY_PATH="securecodebox/securecodebox/nuclei-summary-$SCAN_NAME_NUCLEI.md"
 if mc cp "$SUMMARY_MD" "$MINIO_SUMMARY_PATH"; then
     print_status SUCCESS "Nuclei summary uploaded to MinIO: $MINIO_SUMMARY_PATH"
 fi
 rm "$SUMMARY_MD"
 
 print_status SUCCESS "Nuclei scan completed successfully!"
-print_status INFO "Results: myminio/securecodebox/scan-$SCAN_UID/nuclei-results.jsonl"
-print_status INFO "Summary: myminio/securecodebox/nuclei-summary-$SCAN_NAME_NUCLEI.md"
+print_status INFO "Results: securecodebox/securecodebox/scan-$SCAN_UID/nuclei-results.jsonl"
+print_status INFO "Summary: securecodebox/securecodebox/nuclei-summary-$SCAN_NAME_NUCLEI.md"
 
 if [ "$finding_count" -gt 0 ]; then
     print_status SUCCESS "🎉 Nuclei scan found $finding_count vulnerabilities!"

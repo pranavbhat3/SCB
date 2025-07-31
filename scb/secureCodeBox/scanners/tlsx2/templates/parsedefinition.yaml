@@ -1,8 +1,0 @@
-apiVersion: parser.securecodebox.io/v1
-kind: ParseDefinition
-metadata:
-  name: tlsx2-parser
-  namespace: securecodebox-system
-spec:
-  image: pranavbhat3/tlsx-parser:latest
-  ttlSecondsAfterFinished: 3600

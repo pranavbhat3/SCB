@@ -453,7 +453,7 @@ def scan(request: Request, target: str = Form(...)):
     clear_output_queue()
     try:
         # Use the cascading script that runs Naabu -> TLSX -> ZAP -> Nuclei
-        script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'run_cascading_manual.sh'))
+        script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'run_cascading_manual.sh'))
         current_process = subprocess.Popen(
             ["bash", script_path, target], 
             stdout=subprocess.PIPE, 
@@ -1437,7 +1437,7 @@ def cascading_scan(request: Request, target: str = Form(...)):
     clear_output_queue()
     try:
         # Use the cascading script that runs Naabu -> TLSX -> ZAP -> Nuclei
-        script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'run_cascading_manual.sh'))
+        script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'run_cascading_manual.sh'))
         current_process = subprocess.Popen(
             ["bash", script_path, target], 
             stdout=subprocess.PIPE, 

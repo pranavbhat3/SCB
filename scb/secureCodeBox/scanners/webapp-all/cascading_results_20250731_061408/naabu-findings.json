@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Open port 443 on 8.8.8.8",
+    "description": "Port 443 is open on host 8.8.8.8",
+    "category": "Open Port",
+    "location": "8.8.8.8:443",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes": {
+      "ip": "8.8.8.8",
+      "timestamp": "2025-07-31T06:17:39.081018594Z",
+      "port": 443,
+      "protocol": "tcp",
+      "tls": false
+    }
+  },
+  {
+    "name": "Open port 53 on 8.8.8.8",
+    "description": "Port 53 is open on host 8.8.8.8",
+    "category": "Open Port",
+    "location": "8.8.8.8:53",
+    "osi_layer": "NETWORK",
+    "severity": "INFORMATIONAL",
+    "attributes": {
+      "ip": "8.8.8.8",
+      "timestamp": "2025-07-31T06:17:39.081018594Z",
+      "port": 53,
+      "protocol": "tcp",
+      "tls": false
+    }
+  }
+]

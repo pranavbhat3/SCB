@@ -7,7 +7,7 @@
     "osi_layer": "NETWORK",
     "severity": "LOW",
     "attributes": {
-      "timestamp": "2025-07-31T05:46:04.442020734Z",
+      "timestamp": "2025-07-31T06:18:32.942753311Z",
       "host": "8.8.8.8",
       "ip": "8.8.8.8",
       "port": "443",

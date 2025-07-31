@@ -1,42 +1,45 @@
 [
   {
-    "name": "TLSX Result for 192.168.2.10",
-    "description": "TLS version tls12 with cipher TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "name": "TLSX Result for 8.8.8.8",
+    "description": "TLS version tls13 with cipher TLS_AES_128_GCM_SHA256",
     "category": "TLS Certificate Info",
-    "location": "192.168.2.10:443",
+    "location": "8.8.8.8:443",
     "osi_layer": "NETWORK",
     "severity": "LOW",
     "attributes": {
-      "timestamp": "2025-07-23T10:34:52.584950523Z",
-      "host": "192.168.2.10",
-      "ip": "192.168.2.10",
+      "timestamp": "2025-07-31T05:38:22.889240429Z",
+      "host": "8.8.8.8",
+      "ip": "8.8.8.8",
       "port": "443",
       "probe_status": true,
-      "tls_version": "tls12",
-      "cipher": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
-      "self_signed": true,
+      "tls_version": "tls13",
+      "cipher": "TLS_AES_128_GCM_SHA256",
       "mismatched": true,
-      "not_before": "2025-07-03T12:36:07Z",
-      "not_after": "2075-06-22T12:36:07Z",
-      "subject_dn": "CN=ABB-IED-1VHR81034967, O=ABB, C=FI",
-      "subject_cn": "ABB-IED-1VHR81034967",
-      "subject_org": [
-        "ABB"
+      "not_before": "2025-07-07T08:35:58Z",
+      "not_after": "2025-09-29T08:35:57Z",
+      "subject_dn": "CN=dns.google",
+      "subject_cn": "dns.google",
+      "subject_an": [
+        "dns.google",
+        "dns.google.com",
+        "*.dns.google.com",
+        "8888.google",
+        "dns64.dns.google"
       ],
-      "serial": "BF:C9:52:94:6A:D7:0A:C5",
-      "issuer_dn": "CN=ABB-IED-1VHR81034967, O=ABB, C=FI",
-      "issuer_cn": "ABB-IED-1VHR81034967",
+      "serial": "F6:DD:59:5B:0C:28:39:CD:09:12:A6:E6:63:11:BE:3A",
+      "issuer_dn": "CN=WR2, O=Google Trust Services, C=US",
+      "issuer_cn": "WR2",
       "issuer_org": [
-        "ABB"
+        "Google Trust Services"
       ],
       "fingerprint_hash": {
-        "md5": "3b1f278407f73e0f3163176b76af6efb",
-        "sha1": "34a46cee6c8172f6b3edfad1744480bbefb5b4df",
-        "sha256": "eede1bdcd1366b62daf5d38a82adfe862207217e4a9df8851bcefeed2a10b063"
+        "md5": "93889cd7ede2507bd7621b13597c9722",
+        "sha1": "731bceed54fa81fc066acd8324f47dd16be28757",
+        "sha256": "649981865a3effb5ff7be7c842e336ea61f14f5696cc1bde9b068dd03cd6c29d"
       },
+      "wildcard_certificate": true,
       "tls_connection": "ctls",
-      "sni": "192.168.2.10",
-      "client_cert_required": false
+      "sni": "8.8.8.8"
     }
   }
 ]

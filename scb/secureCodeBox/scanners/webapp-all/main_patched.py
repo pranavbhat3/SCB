@@ -1601,7 +1601,7 @@ mobile_current_target = None
 def safe_mobile_scan_name(scanner, target):
     name = f"{scanner}-{target}"
     name = name.lower()
-    name = re.sub(r'[^a-z0-9.]', '-', name)
+    name = re.sub(r'[^a-z0-9-]', '-', name)  # Remove dots and other special chars
     name = name.strip('-')
     name = re.sub(r'-+', '-', name)
     # Always append a timestamp for uniqueness

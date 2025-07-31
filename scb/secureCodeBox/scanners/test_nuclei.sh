@@ -26,7 +26,20 @@ print_status() {
 
 # Configuration
 TARGET=${1:-"scanme.nmap.org"}
-SCAN_NAME="nuclei-test-$(date +%s)"
+
+# Safe scan name function
+safe_scan_name() {
+    local target="$1"
+    local prefix="$2"
+    local name="${prefix}-${target}"
+    name=$(echo "$name" | tr '[:upper:]' '[:lower:]')
+    name=$(echo "$name" | sed 's/[^a-z0-9-]/-/g')
+    name=$(echo "$name" | sed 's/--*/-/g')
+    name=$(echo "$name" | sed 's/^-//;s/-$//')
+    echo "${name}-$(date +%s)"
+}
+
+SCAN_NAME=$(safe_scan_name "$TARGET" "nuclei-test")
 NAMESPACE="securecodebox-system"
 RESULTS_DIR="nuclei_test_results_$(date +%Y%m%d_%H%M%S)"
 
@@ -61,9 +74,9 @@ print_status "SUCCESS" "Prerequisites check passed"
 print_status "INFO" "Setting up MinIO access..."
 mc alias set securecodebox http://localhost:9000 admin password >/dev/null 2>&1 || true
 
-# Create Nuclei scan
+# Create Nuclei scan with proper configuration for IP addresses
 print_status "RUNNING" "Creating Nuclei scan..."
-if scbctl scan nuclei --name "$SCAN_NAME" --namespace "$NAMESPACE" -- -u "https://$TARGET"; then
+if scbctl scan nuclei --name "$SCAN_NAME" --namespace "$NAMESPACE" -- -u "https://$TARGET" -no-httpx -jsonl; then
     print_status "SUCCESS" "Nuclei scan created: $SCAN_NAME"
 else
     print_status "ERROR" "Failed to create Nuclei scan"

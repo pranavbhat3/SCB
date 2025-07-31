@@ -12,7 +12,7 @@
 9. [Results and Reporting](#results-and-reporting)
 10. [Quick Reference Commands](#quick-reference-commands)
 11. [Troubleshooting](#troubleshooting)
-12. [Best Practices](#best-practices)
+
 
 ---
 
@@ -930,41 +930,9 @@ kubectl logs -n securecodebox-system deployment/securecodebox-operator
 3. **Timeouts**: Set appropriate timeouts for long-running scans
 4. **Storage**: Ensure adequate MinIO storage for results
 
----
 
-## Best Practices
 
-### Security Scanning
-1. **Authorization**: Ensure you have permission to scan targets
-2. **Rate Limiting**: Avoid overwhelming target systems
-3. **Documentation**: Document all scanning activities
-4. **Compliance**: Follow relevant security standards
 
-### Operational Practices
-1. **Monitoring**: Monitor scan execution and resource usage
-2. **Backup**: Regularly backup scan configurations and results
-3. **Updates**: Keep scanners and templates updated
-4. **Testing**: Test new configurations in non-production environments
-
-### Integration Practices
-1. **CI/CD**: Integrate scans into development pipelines
-2. **Automation**: Use automation scripts for consistent execution
-3. **Reporting**: Generate regular security reports
-4. **Remediation**: Track and remediate identified vulnerabilities
-
-### Performance Tuning
-- **Concurrent Scans**: Limit to 2-3 concurrent scans
-- **Resource Limits**: Monitor CPU/memory usage
-- **Timeouts**: Set appropriate timeouts for large targets
-- **Storage**: Ensure adequate MinIO storage
-
-### Security Considerations
-- **Authorization**: Always ensure permission to scan targets
-- **Rate Limiting**: Use appropriate rate limits
-- **Documentation**: Document all scanning activities
-- **Compliance**: Follow relevant security standards
-
----
 
 ## Project Structure
 

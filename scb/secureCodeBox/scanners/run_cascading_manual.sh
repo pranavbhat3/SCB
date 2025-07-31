@@ -12,6 +12,18 @@ set -e
 TARGET=${1:-scanme.nmap.org}
 ALL_PORTS=""
 NAMESPACE="securecodebox-system"
+
+# Safe scan name function
+safe_scan_name() {
+    local target="$1"
+    local prefix="$2"
+    local name="${prefix}-${target}"
+    name=$(echo "$name" | tr '[:upper:]' '[:lower:]')
+    name=$(echo "$name" | sed 's/[^a-z0-9-]/-/g')
+    name=$(echo "$name" | sed 's/--*/-/g')
+    name=$(echo "$name" | sed 's/^-//;s/-$//')
+    echo "${name}-$(date +%s)"
+}
 if [[ "$2" == "--all-ports" ]]; then
   ALL_PORTS="1"
   [ -n "$3" ] && NAMESPACE="$3"
@@ -41,7 +53,7 @@ print_status() {
 }
 
 # === NAABU SCAN (always scan all ports, no --all-ports flag needed) ===
-SCAN_NAME="naabu-scan-$(date +%s)"
+SCAN_NAME=$(safe_scan_name "$TARGET" "naabu-scan")
 echo "[INFO] Scanning ALL ports (1-65535) on $TARGET"
 echo "=== NAABU SCANNER WITH SCBCTL (ALL PORTS CAPABLE) ==="
 echo "Target: $TARGET"
@@ -185,7 +197,7 @@ print_status INFO "TLSX will be run for $TARGET on ports: $TLSX_PORTS"
 echo "$TLSX_PORTS" | tr ',' '\n' | head -10
 
 # === TLSX SCAN (robust, multiport, PVC extraction) ===
-SCAN_NAME_TLSX="tlsx-cascade-$(date +%s)"
+SCAN_NAME_TLSX=$(safe_scan_name "$TARGET" "tlsx-cascade")
 TLSX_SCAN_FILE="${SCAN_NAME_TLSX}.yaml"
 
 cat > "$TLSX_SCAN_FILE" <<EOF
@@ -277,7 +289,7 @@ ZAP_TARGETS_LIST=($(cat "$ZAP_TARGETS"))
 for ZAP_TARGET in "${ZAP_TARGETS_LIST[@]}"; do
   # Fix: Use proper naming convention without underscores and special characters
   SAFE_TARGET=$(echo "$ZAP_TARGET" | sed 's#https\?://##;s/[:/.]/-/g;s/--*/-/g;s/^-//;s/-$//')
-  ZAP_SCAN_NAME="zap-scan-$(date +%s)-$SAFE_TARGET"
+  ZAP_SCAN_NAME=$(safe_scan_name "$SAFE_TARGET" "zap-scan")
   REPORT_DIR="$RESULTS_DIR/zap_reports_$SAFE_TARGET"
   mkdir -p "$REPORT_DIR"
 
@@ -518,7 +530,7 @@ ls -la "$NUCLEI_TARGETS_FILE" 2>/dev/null || print_status WARNING "Nuclei target
 # === Nuclei scan section (using working approach from run_nuclei_scan.sh) ===
 print_status INFO "=== STARTING NUCLEI SCAN SECTION ==="
 print_status INFO "Step 1: Creating Nuclei scan name..."
-SCAN_NAME_NUCLEI="nuclei-cascade-$(date +%s)"
+SCAN_NAME_NUCLEI=$(safe_scan_name "$TARGET" "nuclei-cascade")
 print_status INFO "Nuclei scan name: $SCAN_NAME_NUCLEI"
 
 # Use the working approach from run_nuclei_scan.sh
